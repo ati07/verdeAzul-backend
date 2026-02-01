@@ -1,0 +1,2066 @@
+atiur@server:~$ cd ~/.pm2/logs
+atiur@server:~/.pm2/logs$ ls
+api-error.log  api-out.log
+atiur@server:~/.pm2/logs$ cat api-error.log
+atiur@server:~/.pm2/logs$ cat api-out.log
+Mongo DB conn. string... mongodb+srv://testUser:test123@cluster0.bq15jz4.mongodb.net/?retryWrites=true&w=majority
+db connected
+Server is listening on port: 5000
+Mongo DB conn. string... mongodb+srv://testUser:test123@cluster0.bq15jz4.mongodb.net/?retryWrites=true&w=majority
+db connected
+Server is listening on port: 3000
+HEAD / 404 3.248 ms - 39
+HEAD / 404 1.037 ms - 39
+HEAD / 404 0.501 ms - 39
+HEAD / 404 0.561 ms - 39
+HEAD / 404 0.552 ms - 39
+HEAD / 404 2.236 ms - 39
+HEAD /live 200 1.415 ms - 33
+OPTIONS /auth/login 200 3.062 ms - 4
+GET /live 200 1.430 ms - 33
+GET /favicon.ico 404 0.484 ms - 39
+OPTIONS /auth/login 200 0.558 ms - 4
+Mongo DB conn. string... mongodb+srv://testUser:test123@cluster0.bq15jz4.mongodb.net/?retryWrites=true&w=majority
+db connected
+Server is listening on port: 3000
+OPTIONS /auth/login 200 3.119 ms - 4
+POST /auth/login 200 573.399 ms - 489
+OPTIONS /project 200 0.698 ms - 13
+Authentication successful!
+GET /project 200 253.647 ms - 4043
+OPTIONS /category_project 200 0.476 ms - 13
+OPTIONS /provider 200 0.423 ms - 13
+OPTIONS /code 200 1.012 ms - 13
+OPTIONS /user 200 0.390 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /code 200 242.676 ms - 9010
+users [
+  {
+    _id: new ObjectId("687958912e418c3040f5da70"),
+    name: 'Heny',
+    email: 'test@test.com',
+    role: 'Super Admin',
+    password: '$2a$12$w3w56/2xBDsp05TcGJuQq.dpbSRBOnOEw3jALxBbcfvpNgyzKODv.',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-07-17T20:09:53.553Z,
+    updatedAt: 2025-07-17T20:09:53.553Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("67ed771ecb3a950285abf4bd"),
+    email: 'admin@gmail.com',
+    password: '$2a$12$h9FflRnMvu.pE312H0ikTeFI/FLOTh2PdzYjpvcrXJ.zIFoT9c3lO',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-04-02T17:42:54.812Z,
+    updatedAt: 2025-07-10T15:25:04.867Z,
+    __v: 0,
+    role: 'Super Admin',
+    name: 'admin'
+  }
+]
+GET /user 200 250.702 ms - 636
+GET /category_project 200 349.219 ms - 2473
+GET /provider 200 682.729 ms - 116600
+OPTIONS /project 200 0.356 ms - 13
+Authentication successful!
+GET /project 304 222.839 ms - -
+GET /live 304 0.658 ms - -
+OPTIONS /auth/login 200 0.841 ms - 4
+POST /auth/login 200 514.770 ms - 489
+OPTIONS /project 200 0.434 ms - 13
+Authentication successful!
+GET /project 200 244.209 ms - 4043
+GET /.git/ 404 1.219 ms - 39
+GET /robots.txt 404 0.672 ms - 39
+GET /robots.txt 404 0.518 ms - 39
+GET / 404 0.556 ms - 39
+GET / 404 0.598 ms - 39
+GET /robots.txt 404 0.593 ms - 39
+GET /robots.txt 404 0.730 ms - 39
+GET / 404 0.397 ms - 39
+GET /robots.txt 404 0.508 ms - 39
+GET / 404 0.572 ms - 39
+GET /robots.txt 404 0.621 ms - 39
+GET /.env 404 0.605 ms - 39
+GET /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php 404 0.891 ms - 39
+GET /robots.txt 404 0.611 ms - 39
+OPTIONS /auth/login 200 0.711 ms - 4
+POST /auth/login 200 518.217 ms - 489
+OPTIONS /project 200 0.412 ms - 13
+Authentication successful!
+GET /project 200 254.485 ms - 4043
+GET /robots.txt 404 0.659 ms - 39
+OPTIONS /auth/login 200 0.585 ms - 4
+POST /auth/login 200 534.499 ms - 489
+OPTIONS /project 200 0.323 ms - 13
+Authentication successful!
+GET /project 200 273.011 ms - 4043
+OPTIONS /provider 200 0.315 ms - 13
+OPTIONS /category_project 200 0.306 ms - 13
+OPTIONS /code 200 0.346 ms - 13
+OPTIONS /user 200 0.259 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /code 200 225.466 ms - 9010
+users [
+  {
+    _id: new ObjectId("687958912e418c3040f5da70"),
+    name: 'Heny',
+    email: 'test@test.com',
+    role: 'Super Admin',
+    password: '$2a$12$w3w56/2xBDsp05TcGJuQq.dpbSRBOnOEw3jALxBbcfvpNgyzKODv.',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-07-17T20:09:53.553Z,
+    updatedAt: 2025-07-17T20:09:53.553Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("67ed771ecb3a950285abf4bd"),
+    email: 'admin@gmail.com',
+    password: '$2a$12$h9FflRnMvu.pE312H0ikTeFI/FLOTh2PdzYjpvcrXJ.zIFoT9c3lO',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-04-02T17:42:54.812Z,
+    updatedAt: 2025-07-10T15:25:04.867Z,
+    __v: 0,
+    role: 'Super Admin',
+    name: 'admin'
+  }
+]
+GET /user 200 216.349 ms - 636
+GET /category_project 200 295.735 ms - 2473
+GET /provider 200 557.948 ms - 116600
+OPTIONS /collection_report 200 0.292 ms - 13
+OPTIONS /project 200 0.256 ms - 13
+OPTIONS /bank 200 0.212 ms - 13
+OPTIONS /client 200 0.235 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+users [
+  {
+    _id: new ObjectId("687958912e418c3040f5da70"),
+    name: 'Heny',
+    email: 'test@test.com',
+    role: 'Super Admin',
+    password: '$2a$12$w3w56/2xBDsp05TcGJuQq.dpbSRBOnOEw3jALxBbcfvpNgyzKODv.',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-07-17T20:09:53.553Z,
+    updatedAt: 2025-07-17T20:09:53.553Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("67ed771ecb3a950285abf4bd"),
+    email: 'admin@gmail.com',
+    password: '$2a$12$h9FflRnMvu.pE312H0ikTeFI/FLOTh2PdzYjpvcrXJ.zIFoT9c3lO',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-04-02T17:42:54.812Z,
+    updatedAt: 2025-07-10T15:25:04.867Z,
+    __v: 0,
+    role: 'Super Admin',
+    name: 'admin'
+  }
+]
+GET /user 304 222.876 ms - -
+GET /project 304 209.086 ms - -
+GET /bank 200 230.035 ms - 5916
+GET /collection_report 200 312.370 ms - 16071
+GET /client 200 400.884 ms - 50802
+OPTIONS /provider 200 0.316 ms - 13
+OPTIONS /administrator 200 0.214 ms - 13
+OPTIONS /category_in_flow 200 0.204 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /category_in_flow 200 287.633 ms - 5508
+GET /provider 304 576.864 ms - -
+GET /administrator 200 2601.386 ms - 15061
+OPTIONS /category_project 200 0.281 ms - 13
+OPTIONS /inventory?page=1&pageSize=50 200 0.246 ms - 13
+OPTIONS /type 200 0.192 ms - 13
+OPTIONS /client 200 0.177 ms - 13
+OPTIONS /status 200 0.179 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /type 200 238.892 ms - 583
+GET /category_project 304 312.757 ms - -
+GET /status 200 328.093 ms - 1424
+GET /client 304 404.186 ms - -
+GET /inventory?page=1&pageSize=50 200 510.625 ms - 41689
+OPTIONS /inventory?projectId=67f000a8d5ac2465971c198a&statusId= 200 0.285 ms - 13
+Authentication successful!
+GET /inventory?projectId=67f000a8d5ac2465971c198a&statusId= 200 398.947 ms - 10246
+OPTIONS /provider 200 0.278 ms - 13
+OPTIONS /code 200 0.211 ms - 13
+Authentication successful!
+Authentication successful!
+GET /code 304 264.820 ms - -
+GET /provider 304 652.041 ms - -
+OPTIONS /project 200 0.287 ms - 13
+Authentication successful!
+GET /project 304 216.404 ms - -
+GET /robots.txt 404 0.656 ms - 39
+GET /robots.txt 404 0.579 ms - 39
+GET /.git/ 404 0.864 ms - 39
+GET /robots.txt 404 0.580 ms - 39
+GET /robots.txt 404 0.573 ms - 39
+GET / 404 0.566 ms - 39
+GET /favicon.ico 404 0.251 ms - 39
+GET /.git/config 404 0.443 ms - 39
+GET / 404 0.541 ms - 39
+GET / 404 0.539 ms - 39
+GET /robots.txt 404 0.580 ms - 39
+GET /.env 404 0.501 ms - 39
+GET / 404 0.646 ms - 39
+GET / 404 0.604 ms - 39
+GET /robots.txt 404 0.640 ms - 39
+GET /wp-admin/setup-config.php 404 0.584 ms - 39
+GET /.env 404 0.632 ms - 39
+GET /.env.save 404 0.320 ms - 39
+GET /.env.prod 404 0.269 ms - 39
+GET /api/.env 404 0.787 ms - 39
+GET /dev/.env 404 0.323 ms - 39
+GET /application/.env 404 0.383 ms - 39
+GET /phpinfo.php 404 0.268 ms - 39
+GET /phpinfo 404 0.293 ms - 39
+GET /php_info.php 404 0.270 ms - 39
+GET /_profiler/phpinfo 404 0.262 ms - 39
+GET /backend/.env 404 0.366 ms - 39
+GET /.env.example 404 0.264 ms - 39
+GET /admin/.env 404 0.280 ms - 39
+GET /info 404 0.293 ms - 39
+GET /robots.txt 404 0.608 ms - 39
+GET /wp-admin/install.php?step=1 404 0.549 ms - 39
+GET /robots.txt 404 0.654 ms - 39
+GET /robots.txt 404 0.575 ms - 39
+GET /robots.txt 404 0.563 ms - 39
+GET / 404 0.499 ms - 39
+GET / 404 0.284 ms - 39
+GET / 404 0.670 ms - 39
+GET / 404 0.659 ms - 39
+GET /.env 404 4.561 ms - 39
+GET /.env.save 404 0.260 ms - 39
+GET /.env.prod 404 0.258 ms - 39
+GET /api/.env 404 0.758 ms - 39
+GET /dev/.env 404 0.262 ms - 39
+GET /application/.env 404 0.282 ms - 39
+GET /phpinfo.php 404 0.265 ms - 39
+GET /phpinfo 404 0.260 ms - 39
+GET /php_info.php 404 0.310 ms - 39
+GET /_profiler/phpinfo 404 0.268 ms - 39
+GET /backend/.env 404 0.417 ms - 39
+GET /.env.example 404 0.262 ms - 39
+GET /admin/.env 404 0.259 ms - 39
+GET /info 404 0.264 ms - 39
+POST / 404 1.080 ms - 39
+GET / 404 0.534 ms - 39
+GET /robots.txt 404 0.502 ms - 39
+GET / 404 0.600 ms - 39
+GET /.git/config 404 0.261 ms - 39
+GET /.env 404 0.295 ms - 39
+GET /api/.env 404 0.845 ms - 39
+GET /config/.env 404 0.285 ms - 39
+GET /_profiler/phpinfo 404 0.266 ms - 39
+GET /tool/view/phpinfo.view.php 404 0.321 ms - 39
+GET /test.php 404 0.292 ms - 39
+GET /app_dev.php/_profiler/phpinfo 404 0.257 ms - 39
+GET /phpinfo=1 404 0.263 ms - 39
+GET /phpinfo.php 404 0.338 ms - 39
+GET /phpinfo 404 0.263 ms - 39
+GET /info.php 404 0.276 ms - 39
+GET /robots.txt 404 0.546 ms - 39
+GET /app_dev.php/_profiler/open?file=app/config/config.yml 404 0.553 ms - 39
+GET /robots.txt 404 0.566 ms - 39
+GET / 404 0.561 ms - 39
+OPTIONS /auth/login 200 0.637 ms - 4
+POST /auth/login 200 535.686 ms - 489
+OPTIONS /project 200 0.275 ms - 13
+Authentication successful!
+GET /project 304 269.487 ms - -
+GET /.git/config 404 0.543 ms - 39
+GET /robots.txt 404 0.580 ms - 39
+GET /robots.txt 404 0.480 ms - 39
+Mongo DB conn. string... mongodb+srv://testUser:test123@cluster0.bq15jz4.mongodb.net/?retryWrites=true&w=majority
+db connected
+Server is listening on port: 3000
+GET /live 200 3.823 ms - 33
+GET /favicon.ico 404 1.282 ms - 39
+OPTIONS /auth/login 200 1.072 ms - 4
+POST /auth/login 200 606.529 ms - 489
+OPTIONS /project 200 0.593 ms - 13
+Authentication successful!
+GET /project 200 243.739 ms - 4043
+GET /.env 404 0.888 ms - 39
+GET / 404 2.501 ms - 39
+GET /.env 404 0.378 ms - 39
+GET /.remote 404 0.277 ms - 39
+GET /.local 404 0.423 ms - 39
+GET /.production 404 0.282 ms - 39
+GET //vendor/.env 404 0.257 ms - 39
+GET //lib/.env 404 0.267 ms - 39
+GET //lab/.env 404 0.301 ms - 39
+GET //cronlab/.env 404 0.410 ms - 39
+GET //cron/.env 404 0.304 ms - 39
+GET //core/.env 404 0.296 ms - 39
+GET //core/app/.env 404 0.307 ms - 39
+GET //core/Datavase/.env 404 0.284 ms - 39
+GET //database/.env 404 0.292 ms - 39
+GET //config/.env 404 0.276 ms - 39
+GET //assets/.env 404 0.242 ms - 39
+GET //app/.env 404 0.242 ms - 39
+GET //apps/.env 404 0.231 ms - 39
+GET //uploads/.env 404 0.277 ms - 39
+GET //sitemaps/.env 404 0.238 ms - 39
+GET //saas/.env 404 0.323 ms - 39
+GET //api/.env 404 0.263 ms - 39
+GET //psnlink/.env 404 0.259 ms - 39
+GET //exapi/.env 404 0.336 ms - 39
+GET //site/.env 404 0.236 ms - 39
+GET //admin/.env 404 0.389 ms - 39
+GET //web/.env 404 0.233 ms - 39
+GET //public/.env 404 0.252 ms - 39
+GET //en/.env 404 0.246 ms - 39
+GET //tools/.env 404 0.287 ms - 39
+GET //v1/.env 404 0.245 ms - 39
+GET //v2/.env 404 0.242 ms - 39
+GET //administrator/.env 404 0.261 ms - 39
+GET //laravel/.env 404 0.242 ms - 39
+OPTIONS /auth/login 200 1.273 ms - 4
+POST /auth/login 200 531.427 ms - 489
+OPTIONS /project 200 0.422 ms - 13
+Authentication successful!
+GET /project 200 264.660 ms - 4043
+OPTIONS /provider 200 0.614 ms - 13
+OPTIONS /category_project 200 0.574 ms - 13
+OPTIONS /code 200 0.329 ms - 13
+OPTIONS /user 200 0.243 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+users [
+  {
+    _id: new ObjectId("687958912e418c3040f5da70"),
+    name: 'Heny',
+    email: 'test@test.com',
+    role: 'Super Admin',
+    password: '$2a$12$w3w56/2xBDsp05TcGJuQq.dpbSRBOnOEw3jALxBbcfvpNgyzKODv.',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-07-17T20:09:53.553Z,
+    updatedAt: 2025-07-17T20:09:53.553Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("67ed771ecb3a950285abf4bd"),
+    email: 'admin@gmail.com',
+    password: '$2a$12$h9FflRnMvu.pE312H0ikTeFI/FLOTh2PdzYjpvcrXJ.zIFoT9c3lO',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-04-02T17:42:54.812Z,
+    updatedAt: 2025-07-10T15:25:04.867Z,
+    __v: 0,
+    role: 'Super Admin',
+    name: 'admin'
+  }
+]
+GET /user 200 237.108 ms - 636
+GET /code 200 268.622 ms - 9010
+GET /category_project 200 298.341 ms - 2473
+GET /provider 200 619.890 ms - 116600
+OPTIONS /client 200 0.492 ms - 13
+OPTIONS /collection_report 200 0.237 ms - 13
+OPTIONS /user 200 0.226 ms - 13
+OPTIONS /project 200 0.229 ms - 13
+OPTIONS /bank 200 0.180 ms - 13
+OPTIONS /category_in_flow 200 0.243 ms - 13
+OPTIONS /administrator 200 0.189 ms - 13
+OPTIONS /provider 200 0.177 ms - 13
+OPTIONS /inventory?page=1&pageSize=50 200 0.212 ms - 13
+OPTIONS /category_project 200 0.228 ms - 13
+OPTIONS /status 200 0.358 ms - 13
+OPTIONS /type 200 0.268 ms - 13
+OPTIONS /client 200 0.211 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+users [
+  {
+    _id: new ObjectId("687958912e418c3040f5da70"),
+    name: 'Heny',
+    email: 'test@test.com',
+    role: 'Super Admin',
+    password: '$2a$12$w3w56/2xBDsp05TcGJuQq.dpbSRBOnOEw3jALxBbcfvpNgyzKODv.',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-07-17T20:09:53.553Z,
+    updatedAt: 2025-07-17T20:09:53.553Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("67ed771ecb3a950285abf4bd"),
+    email: 'admin@gmail.com',
+    password: '$2a$12$h9FflRnMvu.pE312H0ikTeFI/FLOTh2PdzYjpvcrXJ.zIFoT9c3lO',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-04-02T17:42:54.812Z,
+    updatedAt: 2025-07-10T15:25:04.867Z,
+    __v: 0,
+    role: 'Super Admin',
+    name: 'admin'
+  }
+]
+GET /user 304 225.534 ms - -
+GET /collection_report 200 324.876 ms - 16071
+GET /client 200 393.364 ms - 50802
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /bank 200 235.141 ms - 5916
+GET /project 304 251.447 ms - -
+Authentication successful!
+GET /category_in_flow 200 292.808 ms - 5508
+GET /administrator 200 329.520 ms - 15061
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /category_project 304 289.195 ms - -
+OPTIONS /payment_report 200 0.268 ms - 13
+GET /provider 304 574.816 ms - -
+OPTIONS /code 200 0.419 ms - 13
+OPTIONS /requestedBy 200 0.265 ms - 13
+Authentication successful!
+Authentication successful!
+GET /type 200 231.824 ms - 583
+Authentication successful!
+Authentication successful!
+GET /status 200 277.907 ms - 1424
+Authentication successful!
+GET /payment_report 200 346.132 ms - 50260
+GET /client 304 430.000 ms - -
+Authentication successful!
+GET /inventory?page=1&pageSize=50 200 1587.525 ms - 41689
+GET /code 304 226.608 ms - -
+Authentication successful!
+GET /provider 304 590.538 ms - -
+GET /requestedBy 200 323.030 ms - 842
+OPTIONS /bank 200 0.394 ms - 13
+OPTIONS /client 200 0.385 ms - 13
+OPTIONS /collection_report 200 0.222 ms - 13
+OPTIONS /project 200 0.193 ms - 13
+OPTIONS /user 200 0.196 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /bank 304 218.913 ms - -
+GET /project 304 226.887 ms - -
+users [
+  {
+    _id: new ObjectId("687958912e418c3040f5da70"),
+    name: 'Heny',
+    email: 'test@test.com',
+    role: 'Super Admin',
+    password: '$2a$12$w3w56/2xBDsp05TcGJuQq.dpbSRBOnOEw3jALxBbcfvpNgyzKODv.',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-07-17T20:09:53.553Z,
+    updatedAt: 2025-07-17T20:09:53.553Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("67ed771ecb3a950285abf4bd"),
+    email: 'admin@gmail.com',
+    password: '$2a$12$h9FflRnMvu.pE312H0ikTeFI/FLOTh2PdzYjpvcrXJ.zIFoT9c3lO',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-04-02T17:42:54.812Z,
+    updatedAt: 2025-07-10T15:25:04.867Z,
+    __v: 0,
+    role: 'Super Admin',
+    name: 'admin'
+  }
+]
+GET /user 304 227.469 ms - -
+GET /collection_report 304 309.325 ms - -
+GET /client 304 381.052 ms - -
+OPTIONS /project 200 0.367 ms - 13
+Authentication successful!
+GET /project 304 226.350 ms - -
+OPTIONS /project 200 0.333 ms - 13
+Authentication successful!
+GET /project 304 229.061 ms - -
+OPTIONS /crm 404 0.269 ms - 39
+OPTIONS /client 200 0.327 ms - 13
+Authentication successful!
+GET /client 304 371.970 ms - -
+OPTIONS /api/logs?page=1&limit=50 200 0.583 ms - 8
+OPTIONS /user 200 0.246 ms - 13
+Authentication successful!
+GET /api/logs?page=1&limit=50 200 239.287 ms - 23157
+users [
+  {
+    _id: new ObjectId("687958912e418c3040f5da70"),
+    name: 'Heny',
+    email: 'test@test.com',
+    role: 'Super Admin',
+    password: '$2a$12$w3w56/2xBDsp05TcGJuQq.dpbSRBOnOEw3jALxBbcfvpNgyzKODv.',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-07-17T20:09:53.553Z,
+    updatedAt: 2025-07-17T20:09:53.553Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("67ed771ecb3a950285abf4bd"),
+    email: 'admin@gmail.com',
+    password: '$2a$12$h9FflRnMvu.pE312H0ikTeFI/FLOTh2PdzYjpvcrXJ.zIFoT9c3lO',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-04-02T17:42:54.812Z,
+    updatedAt: 2025-07-10T15:25:04.867Z,
+    __v: 0,
+    role: 'Super Admin',
+    name: 'admin'
+  }
+]
+GET /user 304 230.072 ms - -
+OPTIONS /project 200 0.334 ms - 13
+Authentication successful!
+GET /project 304 220.662 ms - -
+OPTIONS /auth/login 200 0.763 ms - 4
+POST /auth/login 200 547.883 ms - 489
+OPTIONS /project 200 0.286 ms - 13
+Authentication successful!
+GET /project 200 232.170 ms - 4043
+OPTIONS /project 200 0.399 ms - 13
+Authentication successful!
+GET /project 304 215.297 ms - -
+OPTIONS /provider 200 0.299 ms - 13
+OPTIONS /category_project 200 0.266 ms - 13
+OPTIONS /project 200 0.259 ms - 13
+OPTIONS /code 200 0.239 ms - 13
+OPTIONS /user 200 0.193 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /project 304 218.628 ms - -
+GET /code 200 218.266 ms - 9010
+users [
+  {
+    _id: new ObjectId("687958912e418c3040f5da70"),
+    name: 'Heny',
+    email: 'test@test.com',
+    role: 'Super Admin',
+    password: '$2a$12$w3w56/2xBDsp05TcGJuQq.dpbSRBOnOEw3jALxBbcfvpNgyzKODv.',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-07-17T20:09:53.553Z,
+    updatedAt: 2025-07-17T20:09:53.553Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("67ed771ecb3a950285abf4bd"),
+    email: 'admin@gmail.com',
+    password: '$2a$12$h9FflRnMvu.pE312H0ikTeFI/FLOTh2PdzYjpvcrXJ.zIFoT9c3lO',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-04-02T17:42:54.812Z,
+    updatedAt: 2025-07-10T15:25:04.867Z,
+    __v: 0,
+    role: 'Super Admin',
+    name: 'admin'
+  }
+]
+GET /user 200 221.513 ms - 636
+GET /category_project 200 291.938 ms - 2473
+GET /provider 200 542.937 ms - 116600
+OPTIONS /project 200 0.434 ms - 13
+Authentication successful!
+GET /project 304 234.358 ms - -
+OPTIONS /auth/login 200 0.553 ms - 4
+POST /auth/login 200 547.482 ms - 489
+OPTIONS /project 200 0.262 ms - 13
+Authentication successful!
+GET /project 304 255.700 ms - -
+OPTIONS /project 200 0.417 ms - 13
+Authentication successful!
+GET /project 304 238.472 ms - -
+OPTIONS /project 200 0.635 ms - 13
+Authentication successful!
+GET /project 304 249.332 ms - -
+OPTIONS /code 200 0.362 ms - 13
+OPTIONS /provider 200 0.193 ms - 13
+OPTIONS /category_project 200 0.141 ms - 13
+OPTIONS /user 200 0.148 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+users [
+  {
+    _id: new ObjectId("687958912e418c3040f5da70"),
+    name: 'Heny',
+    email: 'test@test.com',
+    role: 'Super Admin',
+    password: '$2a$12$w3w56/2xBDsp05TcGJuQq.dpbSRBOnOEw3jALxBbcfvpNgyzKODv.',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-07-17T20:09:53.553Z,
+    updatedAt: 2025-07-17T20:09:53.553Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("67ed771ecb3a950285abf4bd"),
+    email: 'admin@gmail.com',
+    password: '$2a$12$h9FflRnMvu.pE312H0ikTeFI/FLOTh2PdzYjpvcrXJ.zIFoT9c3lO',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-04-02T17:42:54.812Z,
+    updatedAt: 2025-07-10T15:25:04.867Z,
+    __v: 0,
+    role: 'Super Admin',
+    name: 'admin'
+  }
+]
+GET /user 304 210.555 ms - -
+GET /code 304 215.724 ms - -
+GET /category_project 304 298.191 ms - -
+GET /provider 304 598.751 ms - -
+OPTIONS /code 200 0.692 ms - 13
+OPTIONS /user 200 0.324 ms - 13
+OPTIONS /project 200 0.885 ms - 13
+OPTIONS /category_project 200 0.215 ms - 13
+OPTIONS /provider 200 0.247 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+users [
+  {
+    _id: new ObjectId("687958912e418c3040f5da70"),
+    name: 'Heny',
+    email: 'test@test.com',
+    role: 'Super Admin',
+    password: '$2a$12$w3w56/2xBDsp05TcGJuQq.dpbSRBOnOEw3jALxBbcfvpNgyzKODv.',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-07-17T20:09:53.553Z,
+    updatedAt: 2025-07-17T20:09:53.553Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("67ed771ecb3a950285abf4bd"),
+    email: 'admin@gmail.com',
+    password: '$2a$12$h9FflRnMvu.pE312H0ikTeFI/FLOTh2PdzYjpvcrXJ.zIFoT9c3lO',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-04-02T17:42:54.812Z,
+    updatedAt: 2025-07-10T15:25:04.867Z,
+    __v: 0,
+    role: 'Super Admin',
+    name: 'admin'
+  }
+]
+GET /user 304 236.416 ms - -
+GET /code 304 261.462 ms - -
+GET /project 304 275.493 ms - -
+GET /category_project 304 315.462 ms - -
+GET /provider 304 592.290 ms - -
+OPTIONS /provider 200 0.526 ms - 13
+OPTIONS /code 200 0.341 ms - 13
+OPTIONS /project 200 0.489 ms - 13
+OPTIONS /user 200 0.194 ms - 13
+OPTIONS /category_project 200 0.255 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+users [
+  {
+    _id: new ObjectId("687958912e418c3040f5da70"),
+    name: 'Heny',
+    email: 'test@test.com',
+    role: 'Super Admin',
+    password: '$2a$12$w3w56/2xBDsp05TcGJuQq.dpbSRBOnOEw3jALxBbcfvpNgyzKODv.',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-07-17T20:09:53.553Z,
+    updatedAt: 2025-07-17T20:09:53.553Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("67ed771ecb3a950285abf4bd"),
+    email: 'admin@gmail.com',
+    password: '$2a$12$h9FflRnMvu.pE312H0ikTeFI/FLOTh2PdzYjpvcrXJ.zIFoT9c3lO',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-04-02T17:42:54.812Z,
+    updatedAt: 2025-07-10T15:25:04.867Z,
+    __v: 0,
+    role: 'Super Admin',
+    name: 'admin'
+  }
+]
+GET /user 304 246.219 ms - -
+GET /code 304 253.457 ms - -
+GET /project 304 271.313 ms - -
+GET /category_project 304 314.906 ms - -
+GET /provider 304 559.287 ms - -
+OPTIONS /bank 200 0.297 ms - 13
+OPTIONS /client 200 0.277 ms - 13
+OPTIONS /collection_report 200 0.200 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /bank 304 226.941 ms - -
+GET /collection_report 304 303.801 ms - -
+GET /client 304 373.998 ms - -
+OPTIONS /administrator 200 0.227 ms - 13
+OPTIONS /provider 200 0.182 ms - 13
+OPTIONS /category_in_flow 200 0.174 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /category_in_flow 200 282.657 ms - 5508
+GET /administrator 200 287.657 ms - 15061
+GET /provider 304 533.545 ms - -
+OPTIONS /client 200 0.250 ms - 13
+OPTIONS /type 200 0.197 ms - 13
+OPTIONS /category_project 200 0.219 ms - 13
+OPTIONS /status 200 0.158 ms - 13
+OPTIONS /inventory?page=1&pageSize=50 200 0.183 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /type 200 207.451 ms - 583
+GET /status 200 286.607 ms - 1424
+GET /client 304 373.234 ms - -
+GET /category_project 304 290.563 ms - -
+GET /inventory?page=1&pageSize=50 200 456.139 ms - 41689
+OPTIONS /provider 200 0.267 ms - 13
+OPTIONS /payment_report 200 0.186 ms - 13
+OPTIONS /code 200 0.153 ms - 13
+OPTIONS /requestedBy 200 0.152 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /code 304 275.571 ms - -
+GET /requestedBy 200 326.039 ms - 842
+GET /provider 304 559.047 ms - -
+GET /payment_report 200 1369.897 ms - 50260
+OPTIONS /category_project 200 0.607 ms - 13
+OPTIONS /project 200 0.260 ms - 13
+OPTIONS /provider 200 0.172 ms - 13
+OPTIONS /code 200 0.172 ms - 13
+OPTIONS /user 200 0.174 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /project 304 248.616 ms - -
+users [
+  {
+    _id: new ObjectId("687958912e418c3040f5da70"),
+    name: 'Heny',
+    email: 'test@test.com',
+    role: 'Super Admin',
+    password: '$2a$12$w3w56/2xBDsp05TcGJuQq.dpbSRBOnOEw3jALxBbcfvpNgyzKODv.',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-07-17T20:09:53.553Z,
+    updatedAt: 2025-07-17T20:09:53.553Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("67ed771ecb3a950285abf4bd"),
+    email: 'admin@gmail.com',
+    password: '$2a$12$h9FflRnMvu.pE312H0ikTeFI/FLOTh2PdzYjpvcrXJ.zIFoT9c3lO',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-04-02T17:42:54.812Z,
+    updatedAt: 2025-07-10T15:25:04.867Z,
+    __v: 0,
+    role: 'Super Admin',
+    name: 'admin'
+  }
+]
+GET /user 304 279.281 ms - -
+GET /code 304 280.782 ms - -
+GET /category_project 304 353.718 ms - -
+GET /provider 304 590.664 ms - -
+OPTIONS /bank 200 0.262 ms - 13
+OPTIONS /collection_report 200 0.210 ms - 13
+OPTIONS /client 200 0.155 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /bank 304 229.647 ms - -
+GET /collection_report 304 286.886 ms - -
+GET /client 304 396.687 ms - -
+OPTIONS /category_in_flow 200 0.317 ms - 13
+OPTIONS /provider 200 0.214 ms - 13
+OPTIONS /administrator 200 0.177 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /category_in_flow 304 298.600 ms - -
+GET /administrator 304 287.202 ms - -
+GET /provider 304 507.304 ms - -
+OPTIONS /client 200 0.249 ms - 13
+OPTIONS /inventory?page=1&pageSize=50 200 0.608 ms - 13
+OPTIONS /type 200 0.209 ms - 13
+OPTIONS /status 200 0.256 ms - 13
+OPTIONS /category_project 200 0.188 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /client 304 362.394 ms - -
+GET /type 304 216.360 ms - -
+GET /category_project 304 280.779 ms - -
+GET /status 304 285.662 ms - -
+GET /inventory?page=1&pageSize=50 304 429.967 ms - -
+OPTIONS /requestedBy 200 0.427 ms - 13
+OPTIONS /code 200 0.291 ms - 13
+OPTIONS /provider 200 0.236 ms - 13
+OPTIONS /payment_report 200 0.203 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /code 304 272.058 ms - -
+GET /payment_report 304 304.425 ms - -
+GET /requestedBy 304 312.973 ms - -
+GET /provider 304 580.424 ms - -
+OPTIONS /provider 200 0.613 ms - 13
+OPTIONS /category_project 200 0.272 ms - 13
+OPTIONS /user 200 0.203 ms - 13
+OPTIONS /code 200 0.201 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+users [
+  {
+    _id: new ObjectId("687958912e418c3040f5da70"),
+    name: 'Heny',
+    email: 'test@test.com',
+    role: 'Super Admin',
+    password: '$2a$12$w3w56/2xBDsp05TcGJuQq.dpbSRBOnOEw3jALxBbcfvpNgyzKODv.',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-07-17T20:09:53.553Z,
+    updatedAt: 2025-07-17T20:09:53.553Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("67ed771ecb3a950285abf4bd"),
+    email: 'admin@gmail.com',
+    password: '$2a$12$h9FflRnMvu.pE312H0ikTeFI/FLOTh2PdzYjpvcrXJ.zIFoT9c3lO',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-04-02T17:42:54.812Z,
+    updatedAt: 2025-07-10T15:25:04.867Z,
+    __v: 0,
+    role: 'Super Admin',
+    name: 'admin'
+  }
+]
+GET /user 304 224.293 ms - -
+GET /code 304 229.081 ms - -
+GET /category_project 304 297.224 ms - -
+GET /provider 304 551.054 ms - -
+OPTIONS /category_project 200 0.355 ms - 13
+OPTIONS /user 200 0.250 ms - 13
+OPTIONS /code 200 0.201 ms - 13
+OPTIONS /project 200 0.196 ms - 13
+OPTIONS /provider 200 0.201 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /project 304 215.225 ms - -
+GET /code 304 225.873 ms - -
+users [
+  {
+    _id: new ObjectId("687958912e418c3040f5da70"),
+    name: 'Heny',
+    email: 'test@test.com',
+    role: 'Super Admin',
+    password: '$2a$12$w3w56/2xBDsp05TcGJuQq.dpbSRBOnOEw3jALxBbcfvpNgyzKODv.',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-07-17T20:09:53.553Z,
+    updatedAt: 2025-07-17T20:09:53.553Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("67ed771ecb3a950285abf4bd"),
+    email: 'admin@gmail.com',
+    password: '$2a$12$h9FflRnMvu.pE312H0ikTeFI/FLOTh2PdzYjpvcrXJ.zIFoT9c3lO',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-04-02T17:42:54.812Z,
+    updatedAt: 2025-07-10T15:25:04.867Z,
+    __v: 0,
+    role: 'Super Admin',
+    name: 'admin'
+  }
+]
+GET /user 304 230.060 ms - -
+GET /category_project 304 296.298 ms - -
+GET /provider 304 537.514 ms - -
+OPTIONS /client 200 0.245 ms - 13
+OPTIONS /collection_report 200 0.189 ms - 13
+OPTIONS /bank 200 0.704 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /bank 304 242.747 ms - -
+GET /collection_report 304 327.392 ms - -
+GET /client 304 402.168 ms - -
+OPTIONS /administrator 200 0.241 ms - 13
+OPTIONS /category_in_flow 200 0.182 ms - 13
+OPTIONS /provider 200 0.146 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /category_in_flow 304 300.843 ms - -
+GET /administrator 304 308.650 ms - -
+GET /provider 304 544.986 ms - -
+OPTIONS /type 200 0.580 ms - 13
+OPTIONS /inventory?page=1&pageSize=50 200 0.273 ms - 13
+OPTIONS /status 200 0.245 ms - 13
+OPTIONS /category_project 200 0.194 ms - 13
+OPTIONS /client 200 0.218 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /type 304 223.976 ms - -
+GET /category_project 304 305.546 ms - -
+GET /status 304 315.349 ms - -
+GET /client 304 394.978 ms - -
+GET /inventory?page=1&pageSize=50 304 461.301 ms - -
+OPTIONS /provider 200 0.262 ms - 13
+OPTIONS /code 200 0.187 ms - 13
+OPTIONS /payment_report 200 0.148 ms - 13
+OPTIONS /requestedBy 200 0.153 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /code 304 226.334 ms - -
+GET /requestedBy 304 281.010 ms - -
+GET /payment_report 304 298.373 ms - -
+GET /provider 304 555.390 ms - -
+Mongo DB conn. string... mongodb+srv://testUser:test123@cluster0.bq15jz4.mongodb.net/?retryWrites=true&w=majority
+db connected
+Server is listening on port: 3000
+OPTIONS /auth/login 200 3.052 ms - 4
+POST /auth/login 200 563.693 ms - 489
+OPTIONS /project 200 0.545 ms - 13
+Authentication successful!
+GET /project 200 250.778 ms - 4043
+OPTIONS /payment_report 200 0.423 ms - 13
+OPTIONS /category_project 200 0.294 ms - 13
+OPTIONS /code 200 0.486 ms - 13
+OPTIONS /provider 200 0.395 ms - 13
+OPTIONS /user 200 0.424 ms - 13
+OPTIONS /requestedBy 200 0.449 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /code 200 272.965 ms - 9010
+GET /category_project 200 305.096 ms - 2473
+GET /provider 200 632.070 ms - 116600
+Authentication successful!
+Authentication successful!
+users [
+  {
+    _id: new ObjectId("687958912e418c3040f5da70"),
+    name: 'Heny',
+    email: 'test@test.com',
+    role: 'Super Admin',
+    password: '$2a$12$w3w56/2xBDsp05TcGJuQq.dpbSRBOnOEw3jALxBbcfvpNgyzKODv.',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-07-17T20:09:53.553Z,
+    updatedAt: 2025-07-17T20:09:53.553Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("67ed771ecb3a950285abf4bd"),
+    email: 'admin@gmail.com',
+    password: '$2a$12$h9FflRnMvu.pE312H0ikTeFI/FLOTh2PdzYjpvcrXJ.zIFoT9c3lO',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-04-02T17:42:54.812Z,
+    updatedAt: 2025-07-10T15:25:04.867Z,
+    __v: 0,
+    role: 'Super Admin',
+    name: 'admin'
+  }
+]
+GET /user 200 238.919 ms - 636
+GET /requestedBy 200 311.022 ms - 842
+GET /payment_report 200 862.307 ms - 50260
+OPTIONS /administrator 200 0.360 ms - 13
+OPTIONS /category_in_flow 200 0.493 ms - 13
+Authentication successful!
+Authentication successful!
+GET /category_in_flow 200 284.562 ms - 5508
+GET /administrator 200 306.482 ms - 15061
+OPTIONS /administrator 200 0.293 ms - 13
+OPTIONS /provider 200 0.306 ms - 13
+OPTIONS /project 200 0.670 ms - 13
+OPTIONS /category_in_flow 200 0.245 ms - 13
+OPTIONS /user 200 0.228 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /project 304 231.645 ms - -
+users [
+  {
+    _id: new ObjectId("687958912e418c3040f5da70"),
+    name: 'Heny',
+    email: 'test@test.com',
+    role: 'Super Admin',
+    password: '$2a$12$w3w56/2xBDsp05TcGJuQq.dpbSRBOnOEw3jALxBbcfvpNgyzKODv.',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-07-17T20:09:53.553Z,
+    updatedAt: 2025-07-17T20:09:53.553Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("67ed771ecb3a950285abf4bd"),
+    email: 'admin@gmail.com',
+    password: '$2a$12$h9FflRnMvu.pE312H0ikTeFI/FLOTh2PdzYjpvcrXJ.zIFoT9c3lO',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-04-02T17:42:54.812Z,
+    updatedAt: 2025-07-10T15:25:04.867Z,
+    __v: 0,
+    role: 'Super Admin',
+    name: 'admin'
+  }
+]
+GET /user 304 249.110 ms - -
+GET /category_in_flow 304 295.303 ms - -
+GET /administrator 304 320.936 ms - -
+GET /provider 304 573.216 ms - -
+OPTIONS /auth/login 200 0.516 ms - 4
+POST /auth/login 200 511.225 ms - 489
+OPTIONS /project 200 0.290 ms - 13
+Authentication successful!
+GET /project 200 225.062 ms - 4043
+OPTIONS /project 200 0.750 ms - 13
+Authentication successful!
+GET /project 304 241.856 ms - -
+OPTIONS /payment_report 200 0.353 ms - 13
+OPTIONS /category_project 200 0.349 ms - 13
+OPTIONS /code 200 0.456 ms - 13
+OPTIONS /provider 200 0.360 ms - 13
+OPTIONS /user 200 0.344 ms - 13
+OPTIONS /requestedBy 200 0.352 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+users [
+  {
+    _id: new ObjectId("687958912e418c3040f5da70"),
+    name: 'Heny',
+    email: 'test@test.com',
+    role: 'Super Admin',
+    password: '$2a$12$w3w56/2xBDsp05TcGJuQq.dpbSRBOnOEw3jALxBbcfvpNgyzKODv.',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-07-17T20:09:53.553Z,
+    updatedAt: 2025-07-17T20:09:53.553Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("67ed771ecb3a950285abf4bd"),
+    email: 'admin@gmail.com',
+    password: '$2a$12$h9FflRnMvu.pE312H0ikTeFI/FLOTh2PdzYjpvcrXJ.zIFoT9c3lO',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-04-02T17:42:54.812Z,
+    updatedAt: 2025-07-10T15:25:04.867Z,
+    __v: 0,
+    role: 'Super Admin',
+    name: 'admin'
+  }
+]
+GET /user 200 215.086 ms - 636
+GET /code 200 261.022 ms - 9010
+GET /requestedBy 200 311.573 ms - 842
+GET /category_project 200 338.422 ms - 2473
+GET /provider 200 576.431 ms - 116600
+GET /payment_report 200 1243.954 ms - 50260
+OPTIONS /administrator 200 0.277 ms - 13
+OPTIONS /category_in_flow 200 0.210 ms - 13
+Authentication successful!
+Authentication successful!
+GET /category_in_flow 200 297.515 ms - 5508
+GET /administrator 200 318.569 ms - 15061
+OPTIONS /provider 200 0.474 ms - 13
+OPTIONS /category_project 200 0.293 ms - 13
+OPTIONS /project 200 0.285 ms - 13
+OPTIONS /code 200 0.242 ms - 13
+OPTIONS /user 200 0.219 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+users [
+  {
+    _id: new ObjectId("687958912e418c3040f5da70"),
+    name: 'Heny',
+    email: 'test@test.com',
+    role: 'Super Admin',
+    password: '$2a$12$w3w56/2xBDsp05TcGJuQq.dpbSRBOnOEw3jALxBbcfvpNgyzKODv.',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-07-17T20:09:53.553Z,
+    updatedAt: 2025-07-17T20:09:53.553Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("67ed771ecb3a950285abf4bd"),
+    email: 'admin@gmail.com',
+    password: '$2a$12$h9FflRnMvu.pE312H0ikTeFI/FLOTh2PdzYjpvcrXJ.zIFoT9c3lO',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-04-02T17:42:54.812Z,
+    updatedAt: 2025-07-10T15:25:04.867Z,
+    __v: 0,
+    role: 'Super Admin',
+    name: 'admin'
+  }
+]
+GET /user 304 210.141 ms - -
+GET /project 304 218.798 ms - -
+GET /code 304 226.994 ms - -
+GET /category_project 304 286.430 ms - -
+GET /provider 304 571.988 ms - -
+OPTIONS /administrator 200 0.339 ms - 13
+OPTIONS /user 200 0.242 ms - 13
+OPTIONS /provider 200 0.211 ms - 13
+OPTIONS /category_in_flow 200 0.204 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+users [
+  {
+    _id: new ObjectId("687958912e418c3040f5da70"),
+    name: 'Heny',
+    email: 'test@test.com',
+    role: 'Super Admin',
+    password: '$2a$12$w3w56/2xBDsp05TcGJuQq.dpbSRBOnOEw3jALxBbcfvpNgyzKODv.',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-07-17T20:09:53.553Z,
+    updatedAt: 2025-07-17T20:09:53.553Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("67ed771ecb3a950285abf4bd"),
+    email: 'admin@gmail.com',
+    password: '$2a$12$h9FflRnMvu.pE312H0ikTeFI/FLOTh2PdzYjpvcrXJ.zIFoT9c3lO',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-04-02T17:42:54.812Z,
+    updatedAt: 2025-07-10T15:25:04.867Z,
+    __v: 0,
+    role: 'Super Admin',
+    name: 'admin'
+  }
+]
+GET /user 304 219.732 ms - -
+GET /category_in_flow 304 296.044 ms - -
+GET /administrator 304 308.870 ms - -
+GET /provider 304 565.420 ms - -
+OPTIONS /category_project 200 0.456 ms - 13
+OPTIONS /payment_report 200 0.337 ms - 13
+OPTIONS /requestedBy 200 0.273 ms - 13
+OPTIONS /code 200 0.289 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /code 304 227.482 ms - -
+GET /payment_report 304 313.324 ms - -
+GET /requestedBy 304 306.035 ms - -
+GET /category_project 304 311.071 ms - -
+OPTIONS /collection_report 200 0.376 ms - 13
+OPTIONS /client 200 0.212 ms - 13
+OPTIONS /project 200 0.294 ms - 13
+OPTIONS /user 200 0.203 ms - 13
+OPTIONS /bank 200 0.252 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+users [
+  {
+    _id: new ObjectId("687958912e418c3040f5da70"),
+    name: 'Heny',
+    email: 'test@test.com',
+    role: 'Super Admin',
+    password: '$2a$12$w3w56/2xBDsp05TcGJuQq.dpbSRBOnOEw3jALxBbcfvpNgyzKODv.',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-07-17T20:09:53.553Z,
+    updatedAt: 2025-07-17T20:09:53.553Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("67ed771ecb3a950285abf4bd"),
+    email: 'admin@gmail.com',
+    password: '$2a$12$h9FflRnMvu.pE312H0ikTeFI/FLOTh2PdzYjpvcrXJ.zIFoT9c3lO',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-04-02T17:42:54.812Z,
+    updatedAt: 2025-07-10T15:25:04.867Z,
+    __v: 0,
+    role: 'Super Admin',
+    name: 'admin'
+  }
+]
+GET /user 304 212.285 ms - -
+GET /project 304 215.988 ms - -
+GET /bank 200 232.816 ms - 5916
+GET /collection_report 200 333.467 ms - 16071
+GET /client 200 409.381 ms - 50802
+OPTIONS /provider 200 0.379 ms - 13
+OPTIONS /administrator 200 0.302 ms - 13
+OPTIONS /category_in_flow 200 0.317 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /administrator 304 295.007 ms - -
+GET /category_in_flow 304 296.332 ms - -
+GET /provider 304 479.994 ms - -
+OPTIONS /category_project 200 0.333 ms - 13
+OPTIONS /inventory?page=1&pageSize=50 200 0.299 ms - 13
+OPTIONS /type 200 0.314 ms - 13
+OPTIONS /status 200 0.211 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /type 200 224.324 ms - 583
+GET /category_project 304 294.174 ms - -
+GET /status 200 298.455 ms - 1424
+GET /client 304 381.872 ms - -
+GET /inventory?page=1&pageSize=50 200 484.313 ms - 41689
+OPTIONS /project 200 0.536 ms - 13
+OPTIONS /provider 200 0.367 ms - 13
+OPTIONS /administrator 200 0.255 ms - 13
+OPTIONS /user 200 0.350 ms - 13
+OPTIONS /category_in_flow 200 0.386 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /project 304 256.890 ms - -
+users [
+  {
+    _id: new ObjectId("687958912e418c3040f5da70"),
+    name: 'Heny',
+    email: 'test@test.com',
+    role: 'Super Admin',
+    password: '$2a$12$w3w56/2xBDsp05TcGJuQq.dpbSRBOnOEw3jALxBbcfvpNgyzKODv.',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-07-17T20:09:53.553Z,
+    updatedAt: 2025-07-17T20:09:53.553Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("67ed771ecb3a950285abf4bd"),
+    email: 'admin@gmail.com',
+    password: '$2a$12$h9FflRnMvu.pE312H0ikTeFI/FLOTh2PdzYjpvcrXJ.zIFoT9c3lO',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-04-02T17:42:54.812Z,
+    updatedAt: 2025-07-10T15:25:04.867Z,
+    __v: 0,
+    role: 'Super Admin',
+    name: 'admin'
+  }
+]
+GET /user 304 255.345 ms - -
+Authentication successful!
+GET /administrator 304 335.010 ms - -
+GET /category_in_flow 304 395.717 ms - -
+GET /provider 304 668.813 ms - -
+Mongo DB conn. string... mongodb+srv://testUser:test123@cluster0.bq15jz4.mongodb.net/?retryWrites=true&w=majority
+db connected
+Server is listening on port: 3000
+OPTIONS /user 200 4.134 ms - 13
+OPTIONS /project 200 0.592 ms - 13
+OPTIONS /category_in_flow 200 0.278 ms - 13
+OPTIONS /administrator 200 0.307 ms - 13
+OPTIONS /provider 200 0.457 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /project 304 247.083 ms - -
+users [
+  {
+    _id: new ObjectId("687958912e418c3040f5da70"),
+    name: 'Heny',
+    email: 'test@test.com',
+    role: 'Super Admin',
+    password: '$2a$12$w3w56/2xBDsp05TcGJuQq.dpbSRBOnOEw3jALxBbcfvpNgyzKODv.',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-07-17T20:09:53.553Z,
+    updatedAt: 2025-07-17T20:09:53.553Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("67ed771ecb3a950285abf4bd"),
+    email: 'admin@gmail.com',
+    password: '$2a$12$h9FflRnMvu.pE312H0ikTeFI/FLOTh2PdzYjpvcrXJ.zIFoT9c3lO',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-04-02T17:42:54.812Z,
+    updatedAt: 2025-07-10T15:25:04.867Z,
+    __v: 0,
+    role: 'Super Admin',
+    name: 'admin'
+  }
+]
+GET /user 304 249.163 ms - -
+Authentication successful!
+GET /category_in_flow 304 320.249 ms - -
+GET /provider 304 673.552 ms - -
+GET /administrator 304 724.537 ms - -
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /project 304 220.671 ms - -
+users [
+  {
+    _id: new ObjectId("687958912e418c3040f5da70"),
+    name: 'Heny',
+    email: 'test@test.com',
+    role: 'Super Admin',
+    password: '$2a$12$w3w56/2xBDsp05TcGJuQq.dpbSRBOnOEw3jALxBbcfvpNgyzKODv.',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-07-17T20:09:53.553Z,
+    updatedAt: 2025-07-17T20:09:53.553Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("67ed771ecb3a950285abf4bd"),
+    email: 'admin@gmail.com',
+    password: '$2a$12$h9FflRnMvu.pE312H0ikTeFI/FLOTh2PdzYjpvcrXJ.zIFoT9c3lO',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-04-02T17:42:54.812Z,
+    updatedAt: 2025-07-10T15:25:04.867Z,
+    __v: 0,
+    role: 'Super Admin',
+    name: 'admin'
+  }
+]
+GET /user 304 228.426 ms - -
+GET /category_in_flow 304 289.940 ms - -
+GET /provider 304 580.514 ms - -
+GET /administrator 304 800.863 ms - -
+OPTIONS /project 200 0.574 ms - 13
+OPTIONS /user 200 0.366 ms - 13
+OPTIONS /repayment 200 0.974 ms - 13
+OPTIONS /category_in_flow 200 0.249 ms - 13
+OPTIONS /provider 200 0.286 ms - 13
+OPTIONS /administrator 200 0.215 ms - 13
+OPTIONS /repayment 200 0.915 ms - 13
+OPTIONS /administrator 200 0.275 ms - 13
+OPTIONS /provider 200 0.228 ms - 13
+OPTIONS /category_in_flow 200 0.397 ms - 13
+OPTIONS /project 200 0.206 ms - 13
+OPTIONS /user 200 0.206 ms - 13
+GET /repayment 200 74.959 ms - 1674
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /project 304 268.949 ms - -
+users [
+  {
+    _id: new ObjectId("687958912e418c3040f5da70"),
+    name: 'Heny',
+    email: 'test@test.com',
+    role: 'Super Admin',
+    password: '$2a$12$w3w56/2xBDsp05TcGJuQq.dpbSRBOnOEw3jALxBbcfvpNgyzKODv.',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-07-17T20:09:53.553Z,
+    updatedAt: 2025-07-17T20:09:53.553Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("67ed771ecb3a950285abf4bd"),
+    email: 'admin@gmail.com',
+    password: '$2a$12$h9FflRnMvu.pE312H0ikTeFI/FLOTh2PdzYjpvcrXJ.zIFoT9c3lO',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-04-02T17:42:54.812Z,
+    updatedAt: 2025-07-10T15:25:04.867Z,
+    __v: 0,
+    role: 'Super Admin',
+    name: 'admin'
+  }
+]
+GET /user 304 237.363 ms - -
+GET /category_in_flow 304 330.370 ms - -
+GET /provider 304 611.170 ms - -
+GET /administrator 304 1247.297 ms - -
+OPTIONS /repayment/68bee555087e84342248c1f5 200 0.689 ms - 19
+PUT /repayment/68bee555087e84342248c1f5 200 104.102 ms - 1672
+OPTIONS /repayment/68bee555087e84342248c1f5 200 0.304 ms - 19
+PUT /repayment/68bee555087e84342248c1f5 200 72.953 ms - 1672
+OPTIONS /administrator 200 0.559 ms - 13
+OPTIONS /user 200 0.298 ms - 13
+OPTIONS /provider 200 0.233 ms - 13
+OPTIONS /category_in_flow 200 0.197 ms - 13
+OPTIONS /project 200 0.198 ms - 13
+OPTIONS /repayment 200 0.316 ms - 13
+Authentication successful!
+Authentication successful!
+GET /repayment 304 70.968 ms - -
+Authentication successful!
+Authentication successful!
+Authentication successful!
+users [
+  {
+    _id: new ObjectId("687958912e418c3040f5da70"),
+    name: 'Heny',
+    email: 'test@test.com',
+    role: 'Super Admin',
+    password: '$2a$12$w3w56/2xBDsp05TcGJuQq.dpbSRBOnOEw3jALxBbcfvpNgyzKODv.',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-07-17T20:09:53.553Z,
+    updatedAt: 2025-07-17T20:09:53.553Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("67ed771ecb3a950285abf4bd"),
+    email: 'admin@gmail.com',
+    password: '$2a$12$h9FflRnMvu.pE312H0ikTeFI/FLOTh2PdzYjpvcrXJ.zIFoT9c3lO',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-04-02T17:42:54.812Z,
+    updatedAt: 2025-07-10T15:25:04.867Z,
+    __v: 0,
+    role: 'Super Admin',
+    name: 'admin'
+  }
+]
+GET /user 304 241.352 ms - -
+GET /project 304 265.878 ms - -
+GET /category_in_flow 304 341.092 ms - -
+GET /administrator 304 369.966 ms - -
+GET /provider 304 651.504 ms - -
+OPTIONS /repayment/68bee555087e84342248c1f5 200 0.358 ms - 19
+PUT /repayment/68bee555087e84342248c1f5 200 75.156 ms - 1672
+OPTIONS /repayment 200 0.279 ms - 13
+GET /repayment 200 71.447 ms - 1674
+OPTIONS /user 200 0.649 ms - 13
+OPTIONS /project 200 0.267 ms - 13
+OPTIONS /provider 200 0.193 ms - 13
+OPTIONS /administrator 200 0.232 ms - 13
+OPTIONS /repayment 200 0.298 ms - 13
+OPTIONS /category_in_flow 200 0.260 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /repayment 304 69.732 ms - -
+Authentication successful!
+GET /project 304 283.810 ms - -
+users [
+  {
+    _id: new ObjectId("687958912e418c3040f5da70"),
+    name: 'Heny',
+    email: 'test@test.com',
+    role: 'Super Admin',
+    password: '$2a$12$w3w56/2xBDsp05TcGJuQq.dpbSRBOnOEw3jALxBbcfvpNgyzKODv.',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-07-17T20:09:53.553Z,
+    updatedAt: 2025-07-17T20:09:53.553Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("67ed771ecb3a950285abf4bd"),
+    email: 'admin@gmail.com',
+    password: '$2a$12$h9FflRnMvu.pE312H0ikTeFI/FLOTh2PdzYjpvcrXJ.zIFoT9c3lO',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-04-02T17:42:54.812Z,
+    updatedAt: 2025-07-10T15:25:04.867Z,
+    __v: 0,
+    role: 'Super Admin',
+    name: 'admin'
+  }
+]
+GET /user 304 289.701 ms - -
+GET /category_in_flow 304 280.309 ms - -
+GET /administrator 304 352.650 ms - -
+GET /provider 304 589.331 ms - -
+OPTIONS /repayment/68bee555087e84342248c1f5 200 0.323 ms - 19
+PUT /repayment/68bee555087e84342248c1f5 200 75.663 ms - 1672
+OPTIONS /repayment 200 0.275 ms - 13
+GET /repayment 200 72.317 ms - 1674
+OPTIONS /repayment/68bee555087e84342248c1f5 200 0.293 ms - 19
+PUT /repayment/68bee555087e84342248c1f5 200 74.309 ms - 1672
+OPTIONS /repayment 200 0.303 ms - 13
+GET /repayment 200 80.566 ms - 1674
+OPTIONS /repayment/68bee555087e84342248c1f5 200 0.306 ms - 19
+PUT /repayment/68bee555087e84342248c1f5 200 76.183 ms - 1672
+OPTIONS /repayment 200 0.313 ms - 13
+GET /repayment 200 71.216 ms - 1674
+OPTIONS /repayment 200 0.285 ms - 13
+OPTIONS /administrator 200 0.215 ms - 13
+OPTIONS /project 200 0.208 ms - 13
+OPTIONS /category_in_flow 200 0.395 ms - 13
+OPTIONS /user 200 0.222 ms - 13
+OPTIONS /provider 200 0.233 ms - 13
+GET /repayment 304 71.251 ms - -
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+users [
+  {
+    _id: new ObjectId("687958912e418c3040f5da70"),
+    name: 'Heny',
+    email: 'test@test.com',
+    role: 'Super Admin',
+    password: '$2a$12$w3w56/2xBDsp05TcGJuQq.dpbSRBOnOEw3jALxBbcfvpNgyzKODv.',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-07-17T20:09:53.553Z,
+    updatedAt: 2025-07-17T20:09:53.553Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("67ed771ecb3a950285abf4bd"),
+    email: 'admin@gmail.com',
+    password: '$2a$12$h9FflRnMvu.pE312H0ikTeFI/FLOTh2PdzYjpvcrXJ.zIFoT9c3lO',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-04-02T17:42:54.812Z,
+    updatedAt: 2025-07-10T15:25:04.867Z,
+    __v: 0,
+    role: 'Super Admin',
+    name: 'admin'
+  }
+]
+GET /user 304 227.084 ms - -
+GET /project 304 248.612 ms - -
+GET /administrator 304 331.843 ms - -
+GET /category_in_flow 304 315.851 ms - -
+GET /provider 304 574.585 ms - -
+OPTIONS /auth/login 200 0.501 ms - 4
+POST /auth/login 401 538.673 ms - 49
+OPTIONS /auth/login 200 0.561 ms - 4
+POST /auth/login 200 512.900 ms - 489
+OPTIONS /project 200 0.368 ms - 13
+Authentication successful!
+GET /project 200 245.317 ms - 4043
+OPTIONS /provider 200 0.566 ms - 13
+OPTIONS /administrator 200 0.349 ms - 13
+OPTIONS /category_in_flow 200 0.257 ms - 13
+OPTIONS /user 200 0.283 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+users [
+  {
+    _id: new ObjectId("687958912e418c3040f5da70"),
+    name: 'Heny',
+    email: 'test@test.com',
+    role: 'Super Admin',
+    password: '$2a$12$w3w56/2xBDsp05TcGJuQq.dpbSRBOnOEw3jALxBbcfvpNgyzKODv.',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-07-17T20:09:53.553Z,
+    updatedAt: 2025-07-17T20:09:53.553Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("67ed771ecb3a950285abf4bd"),
+    email: 'admin@gmail.com',
+    password: '$2a$12$h9FflRnMvu.pE312H0ikTeFI/FLOTh2PdzYjpvcrXJ.zIFoT9c3lO',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-04-02T17:42:54.812Z,
+    updatedAt: 2025-07-10T15:25:04.867Z,
+    __v: 0,
+    role: 'Super Admin',
+    name: 'admin'
+  }
+]
+GET /user 200 235.001 ms - 636
+GET /category_in_flow 200 301.759 ms - 5508
+GET /administrator 200 318.158 ms - 15061
+GET /provider 200 583.978 ms - 116600
+OPTIONS /inventory?page=1&pageSize=50 200 0.329 ms - 13
+OPTIONS /status 200 0.262 ms - 13
+OPTIONS /type 200 0.208 ms - 13
+OPTIONS /category_project 200 0.203 ms - 13
+OPTIONS /client 200 0.308 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /type 200 217.807 ms - 583
+GET /status 200 286.761 ms - 1424
+GET /category_project 200 304.885 ms - 2473
+GET /client 200 377.972 ms - 50802
+GET /inventory?page=1&pageSize=50 200 471.083 ms - 41689
+OPTIONS /payment_report 200 0.346 ms - 13
+OPTIONS /code 200 0.304 ms - 13
+OPTIONS /provider 200 0.326 ms - 13
+OPTIONS /requestedBy 200 0.357 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /code 200 237.387 ms - 9010
+GET /requestedBy 200 307.303 ms - 842
+GET /payment_report 200 342.220 ms - 50260
+GET /provider 304 556.579 ms - -
+OPTIONS /repayment 200 0.298 ms - 13
+OPTIONS /administrator 200 0.206 ms - 13
+OPTIONS /category_in_flow 200 0.218 ms - 13
+GET /repayment 200 72.233 ms - 1674
+Authentication successful!
+Authentication successful!
+GET /category_in_flow 304 304.866 ms - -
+GET /administrator 304 315.929 ms - -
+OPTIONS /user 200 0.360 ms - 13
+Authentication successful!
+users [
+  {
+    _id: new ObjectId("687958912e418c3040f5da70"),
+    name: 'Heny',
+    email: 'test@test.com',
+    role: 'Super Admin',
+    password: '$2a$12$w3w56/2xBDsp05TcGJuQq.dpbSRBOnOEw3jALxBbcfvpNgyzKODv.',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-07-17T20:09:53.553Z,
+    updatedAt: 2025-07-17T20:09:53.553Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("67ed771ecb3a950285abf4bd"),
+    email: 'admin@gmail.com',
+    password: '$2a$12$h9FflRnMvu.pE312H0ikTeFI/FLOTh2PdzYjpvcrXJ.zIFoT9c3lO',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-04-02T17:42:54.812Z,
+    updatedAt: 2025-07-10T15:25:04.867Z,
+    __v: 0,
+    role: 'Super Admin',
+    name: 'admin'
+  }
+]
+GET /user 304 230.572 ms - -
+OPTIONS /project 200 0.444 ms - 13
+Authentication successful!
+GET /project 304 250.711 ms - -
+OPTIONS /repayment 200 0.663 ms - 13
+OPTIONS /provider 200 0.272 ms - 13
+OPTIONS /category_in_flow 200 0.204 ms - 13
+OPTIONS /project 200 0.196 ms - 13
+OPTIONS /user 200 0.237 ms - 13
+OPTIONS /administrator 200 0.201 ms - 13
+GET /repayment 200 1088.169 ms - 1674
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /project 304 1392.163 ms - -
+Authentication successful!
+Authentication successful!
+GET /provider 304 1702.773 ms - -
+users [
+  {
+    _id: new ObjectId("687958912e418c3040f5da70"),
+    name: 'Heny',
+    email: 'test@test.com',
+    role: 'Super Admin',
+    password: '$2a$12$w3w56/2xBDsp05TcGJuQq.dpbSRBOnOEw3jALxBbcfvpNgyzKODv.',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-07-17T20:09:53.553Z,
+    updatedAt: 2025-07-17T20:09:53.553Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("67ed771ecb3a950285abf4bd"),
+    email: 'admin@gmail.com',
+    password: '$2a$12$h9FflRnMvu.pE312H0ikTeFI/FLOTh2PdzYjpvcrXJ.zIFoT9c3lO',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-04-02T17:42:54.812Z,
+    updatedAt: 2025-07-10T15:25:04.867Z,
+    __v: 0,
+    role: 'Super Admin',
+    name: 'admin'
+  }
+]
+GET /user 304 1712.894 ms - -
+GET /category_in_flow 304 1775.333 ms - -
+GET /administrator 304 1929.258 ms - -
+OPTIONS /administrator 200 0.318 ms - 13
+OPTIONS /category_in_flow 200 0.250 ms - 13
+OPTIONS /project 200 0.274 ms - 13
+OPTIONS /user 200 0.227 ms - 13
+OPTIONS /provider 200 0.182 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /project 304 212.004 ms - -
+users [
+  {
+    _id: new ObjectId("687958912e418c3040f5da70"),
+    name: 'Heny',
+    email: 'test@test.com',
+    role: 'Super Admin',
+    password: '$2a$12$w3w56/2xBDsp05TcGJuQq.dpbSRBOnOEw3jALxBbcfvpNgyzKODv.',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-07-17T20:09:53.553Z,
+    updatedAt: 2025-07-17T20:09:53.553Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("67ed771ecb3a950285abf4bd"),
+    email: 'admin@gmail.com',
+    password: '$2a$12$h9FflRnMvu.pE312H0ikTeFI/FLOTh2PdzYjpvcrXJ.zIFoT9c3lO',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-04-02T17:42:54.812Z,
+    updatedAt: 2025-07-10T15:25:04.867Z,
+    __v: 0,
+    role: 'Super Admin',
+    name: 'admin'
+  }
+]
+GET /user 304 240.127 ms - -
+GET /category_in_flow 304 281.223 ms - -
+GET /provider 304 527.150 ms - -
+GET /administrator 304 690.865 ms - -
+GET / 404 0.834 ms - 39
+GET / 404 0.866 ms - 39
+OPTIONS /auth/login 200 0.599 ms - 4
+POST /auth/login 200 537.527 ms - 489
+OPTIONS /project 200 0.291 ms - 13
+Authentication successful!
+GET /project 304 237.827 ms - -
+GET / 404 0.621 ms - 39
+GET /favicon.ico 404 0.685 ms - 39
+GET /robots.txt 404 0.462 ms - 39
+GET / 404 0.252 ms - 39
+OPTIONS /auth/login 200 0.551 ms - 4
+POST /auth/login 200 561.761 ms - 489
+OPTIONS /project 200 0.290 ms - 13
+Authentication successful!
+GET /project 304 235.485 ms - -
+OPTIONS /repayment 200 0.569 ms - 13
+OPTIONS /provider 200 0.245 ms - 13
+OPTIONS /administrator 200 0.179 ms - 13
+OPTIONS /user 200 0.188 ms - 13
+OPTIONS /category_in_flow 200 0.193 ms - 13
+Authentication successful!
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /repayment 200 74.933 ms - 1674
+users [
+  {
+    _id: new ObjectId("687958912e418c3040f5da70"),
+    name: 'Heny',
+    email: 'test@test.com',
+    role: 'Super Admin',
+    password: '$2a$12$w3w56/2xBDsp05TcGJuQq.dpbSRBOnOEw3jALxBbcfvpNgyzKODv.',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-07-17T20:09:53.553Z,
+    updatedAt: 2025-07-17T20:09:53.553Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("67ed771ecb3a950285abf4bd"),
+    email: 'admin@gmail.com',
+    password: '$2a$12$h9FflRnMvu.pE312H0ikTeFI/FLOTh2PdzYjpvcrXJ.zIFoT9c3lO',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-04-02T17:42:54.812Z,
+    updatedAt: 2025-07-10T15:25:04.867Z,
+    __v: 0,
+    role: 'Super Admin',
+    name: 'admin'
+  }
+]
+GET /user 200 236.726 ms - 636
+GET /category_in_flow 200 296.816 ms - 5508
+GET /administrator 200 322.676 ms - 15061
+GET /provider 304 554.718 ms - -
+GET /.git/ 404 0.515 ms - 39
+OPTIONS /auth/login 200 0.531 ms - 4
+POST /auth/login 200 548.681 ms - 489
+OPTIONS /project 200 0.259 ms - 13
+Authentication successful!
+GET /project 304 260.923 ms - -
+GET /robots.txt 404 0.805 ms - 39
+GET //files/ 404 0.269 ms - 39
+GET / 404 0.645 ms - 39
+GET /.git/config 404 0.750 ms - 39
+GET / 404 0.458 ms - 39
+GET //wp-includes/wlwmanifest.xml 404 0.292 ms - 39
+GET //xmlrpc.php?rsd 404 0.247 ms - 39
+GET / 404 0.339 ms - 39
+GET //blog/wp-includes/wlwmanifest.xml 404 0.259 ms - 39
+GET //web/wp-includes/wlwmanifest.xml 404 0.440 ms - 39
+GET //wordpress/wp-includes/wlwmanifest.xml 404 0.255 ms - 39
+GET //website/wp-includes/wlwmanifest.xml 404 0.264 ms - 39
+GET //wp/wp-includes/wlwmanifest.xml 404 0.277 ms - 39
+GET //news/wp-includes/wlwmanifest.xml 404 0.291 ms - 39
+GET //2018/wp-includes/wlwmanifest.xml 404 0.244 ms - 39
+GET //2019/wp-includes/wlwmanifest.xml 404 0.386 ms - 39
+GET //shop/wp-includes/wlwmanifest.xml 404 0.265 ms - 39
+GET //wp1/wp-includes/wlwmanifest.xml 404 0.353 ms - 39
+GET //test/wp-includes/wlwmanifest.xml 404 0.248 ms - 39
+GET //media/wp-includes/wlwmanifest.xml 404 0.244 ms - 39
+GET //wp2/wp-includes/wlwmanifest.xml 404 0.289 ms - 39
+GET //site/wp-includes/wlwmanifest.xml 404 0.287 ms - 39
+GET //cms/wp-includes/wlwmanifest.xml 404 0.241 ms - 39
+GET //sito/wp-includes/wlwmanifest.xml 404 0.242 ms - 39
+OPTIONS /auth/login 200 0.690 ms - 4
+POST /auth/login 200 533.360 ms - 489
+OPTIONS /project 200 0.263 ms - 13
+Authentication successful!
+GET /project 304 239.256 ms - -
+OPTIONS /auth/login 200 0.556 ms - 4
+POST /auth/login 200 590.684 ms - 489
+OPTIONS /project 200 0.360 ms - 13
+Authentication successful!
+GET /project 304 288.411 ms - -
+OPTIONS /administrator 200 0.261 ms - 13
+OPTIONS /repayment 200 0.272 ms - 13
+OPTIONS /provider 200 0.433 ms - 13
+OPTIONS /user 200 0.254 ms - 13
+OPTIONS /category_in_flow 200 0.284 ms - 13
+Authentication successful!
+GET /administrator 200 334.628 ms - 15061
+Authentication successful!
+GET /repayment 200 74.721 ms - 1674
+Authentication successful!
+GET /provider 304 552.826 ms - -
+Authentication successful!
+GET /category_in_flow 200 296.647 ms - 5508
+users [
+  {
+    _id: new ObjectId("687958912e418c3040f5da70"),
+    name: 'Heny',
+    email: 'test@test.com',
+    role: 'Super Admin',
+    password: '$2a$12$w3w56/2xBDsp05TcGJuQq.dpbSRBOnOEw3jALxBbcfvpNgyzKODv.',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-07-17T20:09:53.553Z,
+    updatedAt: 2025-07-17T20:09:53.553Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("67ed771ecb3a950285abf4bd"),
+    email: 'admin@gmail.com',
+    password: '$2a$12$h9FflRnMvu.pE312H0ikTeFI/FLOTh2PdzYjpvcrXJ.zIFoT9c3lO',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-04-02T17:42:54.812Z,
+    updatedAt: 2025-07-10T15:25:04.867Z,
+    __v: 0,
+    role: 'Super Admin',
+    name: 'admin'
+  }
+]
+GET /user 200 222.964 ms - 636
+OPTIONS /project 200 0.258 ms - 13
+OPTIONS /repayment 200 0.246 ms - 13
+OPTIONS /provider 200 0.212 ms - 13
+OPTIONS /administrator 200 0.215 ms - 13
+Authentication successful!
+Authentication successful!
+users [
+  {
+    _id: new ObjectId("687958912e418c3040f5da70"),
+    name: 'Heny',
+    email: 'test@test.com',
+    role: 'Super Admin',
+    password: '$2a$12$w3w56/2xBDsp05TcGJuQq.dpbSRBOnOEw3jALxBbcfvpNgyzKODv.',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-07-17T20:09:53.553Z,
+    updatedAt: 2025-07-17T20:09:53.553Z,
+    __v: 0
+  },
+  {
+    _id: new ObjectId("67ed771ecb3a950285abf4bd"),
+    email: 'admin@gmail.com',
+    password: '$2a$12$h9FflRnMvu.pE312H0ikTeFI/FLOTh2PdzYjpvcrXJ.zIFoT9c3lO',
+    isDelete: false,
+    isBlock: false,
+    isActive: true,
+    createdAt: 2025-04-02T17:42:54.812Z,
+    updatedAt: 2025-07-10T15:25:04.867Z,
+    __v: 0,
+    role: 'Super Admin',
+    name: 'admin'
+  }
+]
+GET /user 304 221.505 ms - -
+GET /category_in_flow 304 298.938 ms - -
+GET /repayment 304 70.989 ms - -
+Authentication successful!
+Authentication successful!
+Authentication successful!
+GET /project 304 228.695 ms - -
+GET /administrator 304 317.009 ms - -
+GET /provider 304 539.166 ms - -
+OPTIONS /project 200 0.569 ms - 13
+Authentication successful!
+GET /project 304 249.023 ms - -
+Authentication successful!
+GET /project 304 239.197 ms - -
+OPTIONS /auth/login 200 0.348 ms - 4
+POST /auth/login 200 542.571 ms - 489
+OPTIONS /project 200 0.260 ms - 13
+Authentication successful!
+GET /project 304 226.155 ms - -
