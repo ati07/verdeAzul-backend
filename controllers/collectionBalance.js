@@ -160,7 +160,9 @@ export const getCollectionBalance= tryCatch(async (req, res) => {
       // const balance = ventasData.totalVentas - collectionData.totalCollection;
       const totalCapital = collectionData.totalRecibido - collectionData.totalIntereses
       const balance = ventasData.totalVentas - totalCapital - collectionData.totalIntereses
-    
+      const saldoCapital = ventasData.precioVenta - totalCapital
+      const saldoIntereses = ventasData.intereses - collectionData.totalIntereses
+      
       result.push({
         id: collectionData.id,
         clientId: collectionData.clientId,
@@ -174,7 +176,9 @@ export const getCollectionBalance= tryCatch(async (req, res) => {
         totalIntereses: collectionData.totalIntereses,
         balance: balance,
         ventasCount: ventasData.ventasCount,
-        collectionCount: collectionData.collectionCount
+        collectionCount: collectionData.collectionCount,
+        saldoCapital,
+        saldoIntereses
       });
     }
 

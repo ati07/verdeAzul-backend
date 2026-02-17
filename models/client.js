@@ -1,15 +1,15 @@
 import mongoose from 'mongoose';
 
 const clientSchema = mongoose.Schema({
-    company:{ type: String },
+    addedBy: { type: mongoose.Types.ObjectId },
     name: { type: String },
     email:{ type: String },
     phoneNumber:{ type: String },
-    address:{ type: String },
     description: { type: String },
-    contractFilepath: { type: String },
-    identificationFilepath: { type: String },
-    addedBy: { type: mongoose.Types.ObjectId },
+    identificacion: { type: String },
+    clientDocuments: [],
+    isComplete: { type: Boolean },
+    comment: { type: String },
     isDelete:{ type: Boolean, default: false },
     isActive:{ type: Boolean, default: true }, 
 },

@@ -3,6 +3,7 @@ import { createModernCollectionEmail } from '../helper/templates/cobroTemplate.j
 import { createCobroRecibidoEmail, formatCurrency } from '../helper/templates/recibidoTemplate.js';
 import { ventasMail } from '../helper/ventasMail.js';
 import CollectionReport from '../models/collectionReport.js';
+import Project from '../models/project.js';
 import computeIsComplete from './utils/checkComplete.js';
 import tryCatch from './utils/tryCatch.js';
 
@@ -61,12 +62,23 @@ export const createCollectionReport= tryCatch(async (req, res) => {
   await newCollectionReport.save()
 
   // CollectionReportPayload.subject = `Nuevo Cobro ${CollectionReportPayload.cobroNumber} por $${CollectionReportPayload.totalCollection}`;
-  CollectionReportPayload.to= process.env.ACCOUNTING_EMAIL,
+  // CollectionReportPayload.to= process.env.ACCOUNTING_EMAIL,
   CollectionReportPayload.subject= `Nuevo Cobro Creado: ${CollectionReportPayload.cobroNumber} - ${CollectionReportPayload.unitName}`,
   CollectionReportPayload.text= `Nuevo cobro creado: ${CollectionReportPayload.cobroNumber} Unidad: ${CollectionReportPayload.unitName} Monto: ${CollectionReportPayload.totalCollection}`,
   CollectionReportPayload.html = createModernCollectionEmail(CollectionReportPayload)
   
-  await mail(CollectionReportPayload);
+  // await mail(CollectionReportPayload);
+
+  // Send email to project manager (if project has managerEmail)
+  const project = await Project.findById(CollectionReportPayload.projectId).lean();
+  if (project?.managerEmail) {
+    const pmPayload = {
+      ...CollectionReportPayload,
+      to: project.managerEmail || process.env.ACCOUNTING_EMAIL,
+      subject: `Nuevo Cobro Creado: ${CollectionReportPayload.cobroNumber} - ${CollectionReportPayload.unitName}`
+    };
+    await mail(pmPayload);
+  }
   res.status(200).json({ success: true, message: 'Collection Report added successfully' });
 
 })
@@ -112,6 +124,14 @@ export const getCollectionReport= tryCatch(async (req, res) => {
     };
   }
 
+    // Pagination parameters
+  const page = parseInt(req.query.page) || 1; // Default to page 1
+  const pageSize = parseInt(req.query.pageSize) || 50; // Default to 10 items per page
+  const skip = (page - 1) * pageSize;
+
+    // Fetch total count of documents
+  const totalCount = await CollectionReport.countDocuments(findData);
+
   const CollectionReports = await CollectionReport.find(findData).populate([
     // { path: 'addedBy', model: 'users' },
     { path: 'projectId', model: 'projects'},
@@ -119,9 +139,18 @@ export const getCollectionReport= tryCatch(async (req, res) => {
     { path:'clientId',model:'clients'},
     { path: 'userId', model: 'users' },
 
-  ]).sort({ _id: -1 });
+  ]).sort({ _id: -1 })
+    .skip(skip)
+    .limit(pageSize);
 
-  res.status(200).json({ success: true, result: CollectionReports});
+  // res.status(200).json({ success: true, result: CollectionReports});
+    res.status(200).json({ 
+      success: true, 
+      result: CollectionReports,
+      totalCount, // Total number of documents
+      currentPage: page, // Current page
+      totalPages: Math.ceil(totalCount / pageSize), // Total pages
+  });
 });
 
 //  delete Client

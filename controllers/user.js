@@ -41,7 +41,7 @@ export const getUsers = tryCatch(async (req, res) => {
 
   // const users = await User.find(findUsers).populate({path:'clientId',model:'clients'}).sort({ _id: -1 });
   const users = await User.find(findUsers).sort({ _id: -1 });
-  console.log('users',users)
+  // console.log('users',users)
   
   res.status(200).json({ success: true, result: users });
 });

@@ -22,7 +22,7 @@ export function createModernCollectionEmail(data) {
   };
 
   // let logoBase64 = getLogoBase64('./files/VerdeAzulProperties.png');
-  let logoUrl = process.env.BACKEND_URL + '/files/VerdeAzulProperties.png';
+  let logoUrl = process.env.BACKEND_URL + '/files/images/VerdeAzulProperties.png';
 
   return `
 <!DOCTYPE html>
@@ -43,14 +43,14 @@ export function createModernCollectionEmail(data) {
           
           <!-- Header -->
           <tr>
-            <td style="background: gray; padding: 50px 40px; text-align: center;">
+            <td style="background: white; padding: 50px 40px; text-align: center;">
               
               <!-- Logo -->
               <div style="margin-bottom: 30px;">
                 <img src=${logoUrl} alt="VerdeAzul Properties" style="max-width: 280px; height: auto; filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.2));">
               </div>
               
-              <div style="background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); border-radius: 15px; padding: 30px; margin-bottom: 20px;">
+              <div style="background: #0e01014d; backdrop-filter: blur(10px); border-radius: 15px; padding: 30px; margin-bottom: 20px;">
                 <h1 style="margin: 0; color: #ffffff; font-size: 32px; font-weight: 700; letter-spacing: -0.5px;">
                   💰 Nuevo Cobro Creado
                 </h1>
@@ -155,7 +155,7 @@ export function createModernCollectionEmail(data) {
 
               <!-- Action Button -->
               <div style="text-align: center; margin-top: 35px;">
-                <a href="link to ; https://www.appverdeazul.com/collections_report" style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #ffffff; text-decoration: none; padding: 16px 45px; border-radius: 30px; font-size: 16px; font-weight: 600; box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4); transition: all 0.3s;">
+                <a href="https://www.appverdeazul.com/entradas" style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #ffffff; text-decoration: none; padding: 16px 45px; border-radius: 30px; font-size: 16px; font-weight: 600; box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4); transition: all 0.3s;">
                   Ver Detalles Completos →
                 </a>
               </div>

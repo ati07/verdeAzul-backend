@@ -31,7 +31,7 @@ export function createVentasEmail(ventasData) {
       day: 'numeric'
     });
   };
-let logoUrl = process.env.BACKEND_URL + '/files/VerdeAzulProperties.png';
+let logoUrl = process.env.BACKEND_URL + '/files/images/VerdeAzulProperties.png';
   return `
 <!DOCTYPE html>
 <html lang="es">
@@ -51,14 +51,14 @@ let logoUrl = process.env.BACKEND_URL + '/files/VerdeAzulProperties.png';
           
           <!-- Header -->
           <tr>
-            <td style="background: gray; padding: 50px 40px; text-align: center;">
+            <td style="background: white; padding: 50px 40px; text-align: center;">
               
               <!-- Logo -->
               <div style="margin-bottom: 30px;">
                 <img src=${logoUrl} alt="VerdeAzul Properties" style="max-width: 280px; height: auto; filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.2));">
               </div>
               
-              <div style="background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); border-radius: 15px; padding: 35px; margin-bottom: 20px;">
+              <div style="background: #0e01014d; backdrop-filter: blur(10px); border-radius: 15px; padding: 35px; margin-bottom: 20px;">
                 <div style="background: rgba(255, 255, 255, 0.3); display: inline-block; padding: 8px 20px; border-radius: 25px; margin-bottom: 15px;">
                   <span style="color: #ffffff; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
                     🎉 Nueva Venta

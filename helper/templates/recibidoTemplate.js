@@ -30,7 +30,7 @@ export function createCobroRecibidoEmail(
       minute: "2-digit",
     });
   };
-  let logoUrl = process.env.BACKEND_URL + "/files/VerdeAzulProperties.png";
+  let logoUrl = process.env.BACKEND_URL + "/files/images/VerdeAzulProperties.png";
 
   return `
 <!DOCTYPE html>
@@ -51,7 +51,7 @@ export function createCobroRecibidoEmail(
           
           <!-- Header -->
           <tr>
-            <td style="background: gray; padding: 50px 40px; text-align: center; position: relative;">
+            <td style="background: white; padding: 50px 40px; text-align: center; position: relative;">
               
               <!-- Success Animation Background -->
               <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.1; background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 20px 20px;"></div>
@@ -61,7 +61,7 @@ export function createCobroRecibidoEmail(
                 <img src=${logoUrl} alt="VerdeAzul Properties" style="max-width: 260px; height: auto; filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.2));">
               </div>
               
-              <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); border-radius: 15px; padding: 30px; position: relative; z-index: 1;">
+              <div style="background: #0e01014d; backdrop-filter: blur(10px); border-radius: 15px; padding: 30px; position: relative; z-index: 1;">
                 <h1 style="margin: 0; color: #ffffff; font-size: 34px; font-weight: 800; letter-spacing: -0.5px;">
                   ¡Cobro Recibido!
                 </h1>

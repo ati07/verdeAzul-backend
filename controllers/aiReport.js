@@ -3,6 +3,7 @@ import Bank from '../models/bank.js';
 import CollectionReport from '../models/collectionReport.js';
 import Inventory from '../models/inventory.js';
 import PaymentReport from '../models/paymentReport.js';
+import Ventas from '../models/ventas.js';
 import tryCatch from './utils/tryCatch.js';
 
 // get cobros 
@@ -97,5 +98,20 @@ export const getPaymentReport= tryCatch(async (req, res) => {
   res.status(200).json({ success: true, result: PaymentReports});
 });
 
+export const getVentas = tryCatch(async (req, res) => {
+
+  let findData = {
+    isDelete: false
+  }
+
+  const VentasReports = await Ventas.find(findData).populate([
+    { path: 'addedBy', model: 'users' },
+    { path: 'projectId', model: 'projects' },
+    { path:'clientId',model:'clients'},
+  ]).sort({ _id: -1 })
+  .limit(20);
+
+  res.status(200).json({ success: true, result: VentasReports});
+});
 
 

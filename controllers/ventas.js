@@ -5,9 +5,10 @@ import Ventas from "../models/ventas.js";
 import computeIsComplete from "./utils/checkComplete.js";
 import tryCatch from "./utils/tryCatch.js";
 import fs from "fs";
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 import { mail } from "../helper/mail.js";
 import { createVentasEmail } from "../helper/templates/ventasTemplate.js";
+import Inventory from "../models/inventory.js";
 
 dotenv.config();
 
@@ -16,8 +17,10 @@ const REQUIRED_FIELDS = [
   "clientId",
   "unitName",
   "fechaDeVenta",
-  "precioTotalVenta",
+  "precioVenta",
+  "intereses",
   "contractFilepath",
+  "identificationFilepath",
 ];
 
 // create Client
@@ -27,7 +30,6 @@ export const createVentas = tryCatch(async (req, res) => {
   let VentasPayload = req.body;
   VentasPayload.addedBy = req.auth.user._id;
 
-
   // check that exitence of client, project and unitname
   const existingVentas = await Ventas.findOne({
     clientId: VentasPayload.clientId,
@@ -35,14 +37,12 @@ export const createVentas = tryCatch(async (req, res) => {
     unitName: VentasPayload.unitName,
     isDelete: false,
   });
-  
+
   if (existingVentas) {
-    return res
-      .status(400)
-      .json({
-        success: false,
-        message: "Ventas already exists for this client, project, and unit name",
-      });
+    return res.status(400).json({
+      success: false,
+      message: "Ventas already exists for this client, project, and unit name",
+    });
   }
 
   // compute completeness before saving
@@ -52,21 +52,54 @@ export const createVentas = tryCatch(async (req, res) => {
   VentasPayload.precioTotalVenta =
     parseFloat(VentasPayload.precioVenta || 0) +
     parseFloat(VentasPayload.intereses || 0);
+    
+  const observacionesList = [];
+  
+  if (!VentasPayload.precioVenta || VentasPayload.precioVenta === "") {
+    observacionesList.push("Falta: Precio de Venta.");
+  }
+
+  if (!VentasPayload.intereses || VentasPayload.intereses === "") {
+    observacionesList.push("Falta: Intereses.");
+  }
+
+  if (
+    VentasPayload.identificationFilepath === "" ||
+    !VentasPayload.identificationFilepath
+  ) {
+    observacionesList.push("Falta: Archivo de Identificación.");
+  }
+
+  if (
+    VentasPayload.contractFilepath === "" ||
+    !VentasPayload.contractFilepath
+  ) {
+    observacionesList.push("Falta: Archivo de Contrato.");
+  }
+
+  if (VentasPayload.isComplete) {
+    VentasPayload.observaciones = "Archivo Completo.";
+  } else {
+    VentasPayload.observaciones = observacionesList.join("\n");
+  }
+  
   const newVentas = new Ventas(VentasPayload);
 
   const savedVentas = await newVentas.save();
 
+  console.log("VentasPayload",VentasPayload)
+  // update inventory status
+  let findInventory = {
+    projectId: VentasPayload.projectId,
+    unitName: VentasPayload.unitName,
+  };
+
   let updateData = {
     $set: {
-      contractFilepath: VentasPayload.contractFilepath,
-      identificationFilepath: VentasPayload.identificationFilepath,
-      // isEmailed: true
+      statusId: VentasPayload.statusId,
     },
   };
-  let findClient = {
-    _id: VentasPayload.clientId,
-  };
-  const updatedClient = await Client.updateOne(findClient, updateData);
+  const updatedInventory = await Inventory.updateOne(findInventory, updateData);
 
   // Populate clientId and projectId details
   const populatedVentas = await Ventas.findById(savedVentas._id).populate([
@@ -74,19 +107,17 @@ export const createVentas = tryCatch(async (req, res) => {
     { path: "projectId", model: "projects" },
   ]);
 
-  populatedVentas.to = process.env.FIRST_PERSON_EMAIL
+  populatedVentas.to = process.env.FIRST_PERSON_EMAIL;
   populatedVentas.subject = `Nueva Venta Registrada: ${populatedVentas.unitName} - ${populatedVentas.clientId.name}`;
-  populatedVentas.html = createVentasEmail(populatedVentas)
-  
+  populatedVentas.html = createVentasEmail(populatedVentas);
+
   await mail(populatedVentas);
   // await mail(populatedVentas);
-  res
-    .status(200)
-    .json({
-      success: true,
-      message: "Ventas added successfully",
-      data: populatedVentas,
-    });
+  res.status(200).json({
+    success: true,
+    message: "Ventas added successfully",
+    data: populatedVentas,
+  });
 });
 
 // create getClient
@@ -99,14 +130,18 @@ export const getVentas = tryCatch(async (req, res) => {
     findData["projectId"] = req.query.projectId;
   }
 
+  if (req.query.clientId) {
+    findData["clientId"] = req.query.clientId;
+  }
+
   // Date range filtering
   if (req.query.startDate || req.query.endDate) {
     findData["fechaDeVenta"] = {};
-    
+
     if (req.query.startDate) {
       findData["fechaDeVenta"]["$gte"] = new Date(req.query.startDate);
     }
-    
+
     if (req.query.endDate) {
       // Set end date to end of day
       const endDate = new Date(req.query.endDate);
@@ -116,10 +151,12 @@ export const getVentas = tryCatch(async (req, res) => {
   }
   // Single date filtering (backward compatibility)
   else if (req.query.fechadeVentas || req.query.fechadeVenats) {
-    const singleDate = new Date(req.query.fechadeVentas || req.query.fechadeVenats);
+    const singleDate = new Date(
+      req.query.fechadeVentas || req.query.fechadeVenats,
+    );
     findData["fechaDeVenta"] = {
       $gte: singleDate,
-      $lt: new Date(singleDate.getTime() + 24 * 60 * 60 * 1000) // Next day
+      $lt: new Date(singleDate.getTime() + 24 * 60 * 60 * 1000), // Next day
     };
   }
 
@@ -128,6 +165,7 @@ export const getVentas = tryCatch(async (req, res) => {
       { path: "addedBy", model: "users" },
       { path: "projectId", model: "projects" },
       { path: "clientId", model: "clients" },
+      { path: 'statusId', model: 'status' },
     ])
     .sort({ _id: -1 });
 
@@ -145,22 +183,37 @@ export const deleteVentas = tryCatch(async (req, res) => {
   const directoryPath = "./files/";
   const Ventasdata = await Ventas.find(findVentas).lean();
 
-  fs.unlink(directoryPath + Ventasdata[0].contractFilepath.split("/files/")[1], (err) => {
-    if (err) {
-      console.log("Could not delete file: " + err);
-      return res.status(500).send({
-        message: "Could not delete the file. " + err,
-      });
-    }
-  });
-  fs.unlink(directoryPath + Ventasdata[0].identificationFilepath.split("/files/")[1], (err) => {
-    if (err) {
-      console.log("Could not delete file: " + err);
-      return res.status(500).send({
-        message: "Could not delete the file. " + err,
-      });
-    }
-  });
+  if (
+    Ventasdata[0].contractFilepath?.split("/files/")?.[1] &&
+    Ventasdata[0].contractFilepath?.split("/files/")?.[1] !== ""
+  ) {
+    fs.unlink(
+      directoryPath + Ventasdata[0].contractFilepath.split("/files/")[1],
+      (err) => {
+        if (err) {
+          console.log("Could not delete file: " + err);
+          return res.status(500).send({
+            message: "Could not delete the file. " + err,
+          });
+        }
+      },
+    );
+  }
+
+  if( Ventasdata[0].identificationFilepath?.split("/files/")?.[1] && Ventasdata[0].identificationFilepath?.split("/files/")?.[1] !== ""){
+      fs.unlink(
+    directoryPath + Ventasdata[0].identificationFilepath.split("/files/")[1],
+    (err) => {
+      if (err) {
+        console.log("Could not delete file: " + err);
+        return res.status(500).send({
+          message: "Could not delete the file. " + err,
+        });
+      }
+    },
+  );
+  }
+
 
   const c = await Ventas.updateOne(findVentas, updateData);
   //   let findData={
@@ -170,12 +223,10 @@ export const deleteVentas = tryCatch(async (req, res) => {
   //   const u = await Users.updateMany(findData,updateData);
   // console.log('u ',u );
 
-  res
-    .status(200)
-    .json({
-      success: true,
-      message: "Ventas and all the related data deleted successfully",
-    });
+  res.status(200).json({
+    success: true,
+    message: "Ventas and all the related data deleted successfully",
+  });
 });
 
 export const updateVentas = tryCatch(async (req, res) => {
@@ -186,8 +237,44 @@ export const updateVentas = tryCatch(async (req, res) => {
   // compute isComplete based on merged values
   merged.isComplete = computeIsComplete(merged, REQUIRED_FIELDS);
 
+  let VentasPayload = req.body;
+
+  VentasPayload.precioTotalVenta =
+    parseFloat(VentasPayload.precioVenta || 0) +
+    parseFloat(VentasPayload.intereses || 0);
+
+  const observacionesList = [];
+  
+  if (!VentasPayload.precioVenta || VentasPayload.precioVenta === "") {
+    observacionesList.push("Falta: Precio de Venta.");
+  }
+
+  if (!VentasPayload.intereses || VentasPayload.intereses === "") {
+    observacionesList.push("Falta: Intereses.");
+  }
+
+  if (
+    VentasPayload.identificationFilepath === "" ||
+    !VentasPayload.identificationFilepath
+  ) {
+    observacionesList.push("Falta: Archivo de Identificación.");
+  }
+
+  if (
+    VentasPayload.contractFilepath === "" ||
+    !VentasPayload.contractFilepath
+  ) {
+    observacionesList.push("Falta: Archivo de Contrato.");
+  }
+
+  if (merged.isComplete) {
+    VentasPayload.observaciones = "Archivo Completo.";
+  } else {
+    VentasPayload.observaciones = observacionesList.join("\n");
+  }
+
   let updateData = {
-    $set: { ...req.body, isComplete: merged.isComplete },
+    $set: { ...VentasPayload, isComplete: merged.isComplete },
   };
 
   // let updateData = {
@@ -197,6 +284,20 @@ export const updateVentas = tryCatch(async (req, res) => {
     _id: req.params.ventasId,
   };
   const updatedVentas = await Ventas.updateOne(findVentas, updateData);
+
+  // update the inventory status if projectId, unitName or statusId is updated
+  let findInventory = {
+    projectId: VentasPayload.projectId,
+    unitName: VentasPayload.unitName,
+  };
+
+  let updateInventory = {
+    $set: {
+      statusId: VentasPayload.statusId,
+    },
+  };
+  const updatedInventory = await Inventory.updateOne(findInventory, updateInventory);
+
   let message = "Ventas edited successfully";
 
   res.status(200).json({ success: true, message: message });

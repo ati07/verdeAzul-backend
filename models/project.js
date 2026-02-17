@@ -7,6 +7,8 @@ const projectSchema = new mongoose.Schema({
     empresa: { type: String },
     ruc: { type: String },
     dv: { type : String },
+    managerName: { type : String },
+    managerEmail: { type : String },
     isDelete:{ type: Boolean, default: false },
     isActive:{ type: Boolean, default: true }, 
 },{timestamps: true});
