@@ -14,6 +14,6 @@ ChatRouter.post("/", auth,createChat);
 ChatRouter.get("/", auth,getChats);
 ChatRouter.get("/:chatId", auth, getChatById);
 ChatRouter.put("/:chatId/add-message", auth,addMessage);
-ChatRouter.delete("/:chatId", auth,deleteChat);
+ChatRouter.patch("/:chatId", auth,deleteChat);
 
 export default ChatRouter;

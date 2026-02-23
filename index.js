@@ -42,6 +42,7 @@ import CollectionBalanceRouter from './routes/collectionBalance.js';
 import sendMailRouter from './routes/sendMail.js';
 import VentasRouter from './routes/ventas.js';
 // import './cron/collectionEmailReminder.js';
+import './cron/ceoReminder.js';
 import path from "path";
 
 dotenv.config();

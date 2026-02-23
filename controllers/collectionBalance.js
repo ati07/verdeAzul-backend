@@ -76,6 +76,9 @@ export const getCollectionBalance= tryCatch(async (req, res) => {
   if (req.query.projectId) {
     collectionFilter['projectId'] = req.query.projectId
   }
+  if (req.query.clientId) {
+    collectionFilter['clientId'] = req.query.clientId
+  }
   // Get all collection reports
   const CollectionReports = await CollectionReport.find(collectionFilter).populate([
     { path: 'projectId', model: 'projects'},
@@ -92,6 +95,9 @@ export const getCollectionBalance= tryCatch(async (req, res) => {
   if (req.query.projectId) {
     ventasFilter['projectId'] = req.query.projectId
   }
+  if (req.query.clientId) {
+    ventasFilter['clientId'] = req.query.clientId
+  }
 
   // Get all ventas
   const ventasData = await Ventas.find(ventasFilter).populate([
@@ -104,6 +110,7 @@ export const getCollectionBalance= tryCatch(async (req, res) => {
   const collectionMap = {};
   CollectionReports.forEach(report => {
     const key = `${report?.clientId._id}_${report?.projectId._id}_${report.unitName}`;
+    // console.log("report",report.clientId.name,report.recibido)
     if (!collectionMap[key]) {
       collectionMap[key] = {
         id: report._id,
@@ -125,26 +132,20 @@ export const getCollectionBalance= tryCatch(async (req, res) => {
   });
 
   // console.log("collectionMap",collectionMap);
-  // Group ventas by clientId, projectId, unitName
+  // Map ventas by clientId, projectId, unitName (unique combinations)
   const ventasMap = {};
   ventasData.forEach(venta => {
     const key = `${venta.clientId._id}_${venta.projectId._id}_${venta.unitName}`;
-    if (!ventasMap[key]) {
-      ventasMap[key] = {
-        clientId: venta?.clientId,
-        projectId: venta?.projectId,
-        unitName: venta?.unitName,
-        precioVenta: venta?.precioVenta,
-        intereses: venta?.intereses,
-        totalVentas: 0,
-        ventasCount: 0
-      };
-    }
-    const precioTotalVenta = parseFloat(venta.precioTotalVenta) || 0;
-    ventasMap[key].totalVentas += precioTotalVenta;
-    ventasMap[key].ventasCount += 1;
-    ventasMap[key].precioVenta= venta.precioVenta
-    ventasMap[key].intereses= venta.intereses
+    ventasMap[key] = {
+      id: venta?._id,
+      clientId: venta?.clientId,
+      projectId: venta?.projectId,
+      unitName: venta?.unitName,
+      precioVenta: venta?.precioVenta,
+      intereses: venta?.intereses,
+      totalVentas: parseFloat(venta.precioTotalVenta) || 0,
+      ventasCount: 1
+    };
   });
 
   // console.log("ventasMap",ventasMap);
@@ -159,7 +160,9 @@ export const getCollectionBalance= tryCatch(async (req, res) => {
     if(ventasData){
       // const balance = ventasData.totalVentas - collectionData.totalCollection;
       const totalCapital = collectionData.totalRecibido - collectionData.totalIntereses
+      // console.log("datatesting",ventasData.totalVentas, totalCapital, collectionData.totalRecibido, collectionData.totalIntereses)
       const balance = ventasData.totalVentas - totalCapital - collectionData.totalIntereses
+      
       const saldoCapital = ventasData.precioVenta - totalCapital
       const saldoIntereses = ventasData.intereses - collectionData.totalIntereses
       
@@ -185,29 +188,36 @@ export const getCollectionBalance= tryCatch(async (req, res) => {
 
   });
 
-  // // Add ventas that have no collections
-  // Object.entries(ventasMap).forEach(([key, ventasData]) => {
-  //   const alreadyIncluded = result.some(item => 
-  //     item.clientId === ventasData.clientId && 
-  //     item.projectId === ventasData.projectId && 
-  //     item.unitName === ventasData.unitName
-  //   );
-    
-  //   if (!alreadyIncluded) {
-  //     result.push({
-  //       id: ventasData.clientId,
-  //       clientId: ventasData.clientId,
-  //       projectId: ventasData.projectId,
-  //       unitName: ventasData.unitName,
-  //       totalVentas: ventasData.totalVentas,
-  //       totalCollection: 0,
-  //       balance: ventasData.totalVentas,
-  //       ventasCount: ventasData.ventasCount,
-  //       collectionCount: 0
-  //     });
-  //   }
-  // });
+  // Add ventas that have no collections
+  let ventasWithoutCollections = 0;
+  Object.entries(ventasMap).forEach(([key, ventasData]) => {
+    // Check if this venta key already exists in collectionMap
+    if (!collectionMap[key]) {
+      ventasWithoutCollections++;
+      result.push({
+        id: ventasData.id,
+        clientId: ventasData.clientId,
+        projectId: ventasData.projectId,
+        unitName: ventasData.unitName,
+        precioVenta: ventasData.precioVenta,
+        intereses: ventasData.intereses,
+        precioTotalVenta: ventasData.totalVentas,
+        totalRecibido: 0,
+        totalCapital: 0,
+        totalIntereses: 0,
+        balance: ventasData.totalVentas,
+        ventasCount: ventasData.ventasCount,
+        collectionCount: 0,
+        saldoCapital: 0,
+        saldoIntereses: 0
+      });
+    }
+  });
 
+  // console.log("collectionMap keys:", Object.keys(collectionMap).length);
+  // console.log("ventasMap keys:", Object.keys(ventasMap).length);
+  // console.log("ventas without collections:", ventasWithoutCollections);
+  // console.log("result length:", result.length);
   // Calculate summary
   const summary = {
     // totalVentas: result.reduce((sum, item) => sum + item.totalVentas, 0),

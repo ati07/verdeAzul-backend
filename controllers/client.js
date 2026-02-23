@@ -6,10 +6,10 @@ import tryCatch from './utils/tryCatch.js';
 //
 
 const REQUIRED_FIELDS = [
-            "description",
             "name",
             "phoneNumber",
-            "email"
+            "email",
+            "identificacion",
 ];
 
 
@@ -27,7 +27,7 @@ export const createClient = tryCatch(async (req, res) => {
 
   clientPayload.isComplete = computeIsComplete(clientPayload, REQUIRED_FIELDS);
 
-  console.log("clientPayload",clientPayload)
+  // console.log("clientPayload",clientPayload)
   const newClient = new Client(clientPayload);
 
   await newClient.save()
@@ -42,9 +42,10 @@ export const getClient = tryCatch(async (req, res) => {
     isDelete: false
   }
 
-  // if(req.auth.user.role == 'Partner' ){
-  //   findData.partnerId = req.auth.user._id
-  // }
+  if (req.query.status) {
+    findData['statusCliente'] = req.query.status
+  }
+  
   const { name } = req.query;
   // Add regex for partial matching if snName is provided
   if (name) {
@@ -69,8 +70,8 @@ export const getClient = tryCatch(async (req, res) => {
         observacionesList.push("Falta: Número de teléfono del cliente.");
       }
 
-      if (!c.description || c.description === "") {
-        observacionesList.push("Falta: Descripción del cliente.");
+      if (!c.identificacion || c.identificacion === "") {
+        observacionesList.push("Falta: Identificacion del cliente.");
       }
 
       if (c.isComplete) {
