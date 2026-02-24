@@ -102,7 +102,7 @@ propiedades vendidas.</p>
                                     font-weight: 700;
                                     text-transform: uppercase;
                                     letter-spacing: 1px;">
-                            💰 Balance Actual
+                            💰 Balance pendiente de cobro
                           </p>
                           <p style="margin: 0;
                                     color: #064e3b;

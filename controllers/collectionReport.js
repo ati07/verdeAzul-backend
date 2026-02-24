@@ -37,23 +37,23 @@ export const createCollectionReport= tryCatch(async (req, res) => {
   CollectionReportPayload.estadoDelCobro = 'Pendiente';
   CollectionReportPayload.totalCollection = parseFloat(CollectionReportPayload.pagoCapital || 0) + parseFloat(CollectionReportPayload.intereses || 0);
   // Get last used cobro number (if any)
-  const lastCobro = await CollectionReport
-    .findOne({ isDelete: false })
-    // .sort({ cobroNumber: -1 })
-    .sort({ _id: -1 })
-    .select("cobroNumber")
-    .lean();
+  // const lastCobro = await CollectionReport
+  //   .findOne({ isDelete: false })
+  //   // .sort({ cobroNumber: -1 })
+  //   .sort({ _id: -1 })
+  //   .select("cobroNumber")
+  //   .lean();
 
-  let counter = 0;
-  // console.log("lastCobro",lastCobro)
-  if (lastCobro?.cobroNumber) {
-    const match = lastCobro.cobroNumber.match(/\d+$/);
-    if (match) {
-      counter = parseInt(match[0], 10) + 1;
-    }
-  }
+  // let counter = 0;
+  // // console.log("lastCobro",lastCobro)
+  // if (lastCobro?.cobroNumber) {
+  //   const match = lastCobro.cobroNumber.match(/\d+$/);
+  //   if (match) {
+  //     counter = parseInt(match[0], 10) + 1;
+  //   }
+  // }
 
-  CollectionReportPayload.cobroNumber = `${String(counter)}`;
+  // CollectionReportPayload.cobroNumber = `${String(counter)}`;
 
 
 
@@ -74,7 +74,7 @@ export const createCollectionReport= tryCatch(async (req, res) => {
   if (project?.managerEmail) {
     const pmPayload = {
       ...CollectionReportPayload,
-      to: project.managerEmail || process.env.ACCOUNTING_EMAIL,
+      to: project.managerEmail ? project.managerEmail +","+ process.env.ACCOUNTING_EMAIL : process.env.ACCOUNTING_EMAIL,
       subject: `Nuevo Cobro Creado: ${CollectionReportPayload.cobroNumber} - ${CollectionReportPayload.unitName}`
     };
     await mail(pmPayload);
@@ -92,6 +92,11 @@ export const getCollectionReport= tryCatch(async (req, res) => {
 
   if (req.query.projectId) {
     findData['projectId'] = req.query.projectId
+  }
+
+  
+  if (req.query.status) {
+    findData["estadoDelCobro"] = req.query.status;
   }
 
     const { cobroNumber } = req.query;
@@ -143,13 +148,24 @@ export const getCollectionReport= tryCatch(async (req, res) => {
     .skip(skip)
     .limit(pageSize);
 
+  // get last cobroNumber
+
+  // Get last used cobro number (if any)
+  const lastCobro = await CollectionReport
+    .findOne({ isDelete: false })
+    // .sort({ cobroNumber: -1 })
+    .sort({ _id: -1 })
+    .select("cobroNumber")
+    .lean();
+
   // res.status(200).json({ success: true, result: CollectionReports});
     res.status(200).json({ 
       success: true, 
       result: CollectionReports,
       totalCount, // Total number of documents
       currentPage: page, // Current page
-      totalPages: Math.ceil(totalCount / pageSize), // Total pages
+      totalPages: Math.ceil(totalCount / pageSize), // Total pages,
+      lastCobro:lastCobro
   });
 });
 
@@ -199,7 +215,8 @@ export const updateCollectionReport= tryCatch(async (req, res) => {
   if(merged.estadoDelCobro ==="Recibido" && !merged.isEmailedFromEntradas){
 
     // merged.subject = `Nuevo Cobro ${merged.cobroNumber} por $${merged.totalCollection}`;
-    merged.to= process.env.ACCOUNTING_EMAIL,
+    // merged.to= process.env.ACCOUNTING_EMAIL,
+    merged.to= process.env.FIRST_PERSON_EMAIL
     // merged.subject= `Nuevo Cobro Creado: ${merged.cobroNumber} - ${merged.unitName}`,
     merged.subject = `Cobro Recibido #${merged.cobroNumber} - ${merged.unitName}`;
     // merged.text= `Nuevo cobro creado: ${merged.cobroNumber} Unidad: ${merged.unitName} Monto: ${merged.totalCollection}`,

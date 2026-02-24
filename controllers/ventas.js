@@ -18,7 +18,6 @@ const REQUIRED_FIELDS = [
   "unitName",
   "fechaDeVenta",
   "precioVenta",
-  "intereses",
   "contractFilepath",
   "identificationFilepath",
 ];
@@ -51,43 +50,14 @@ export const createVentas = tryCatch(async (req, res) => {
   VentasPayload.isEmailed = true;
   VentasPayload.precioTotalVenta =
     parseFloat(VentasPayload.precioVenta || 0) +
-    parseFloat(VentasPayload.intereses || 0);
-    
-  const observacionesList = [];
-  
-  if (!VentasPayload.precioVenta || VentasPayload.precioVenta === "") {
-    observacionesList.push("Falta: Precio de Venta.");
-  }
-
-  if (!VentasPayload.intereses || VentasPayload.intereses === "") {
-    observacionesList.push("Falta: Intereses.");
-  }
-
-  if (
-    VentasPayload.identificationFilepath === "" ||
-    !VentasPayload.identificationFilepath
-  ) {
-    observacionesList.push("Falta: Archivo de Identificación.");
-  }
-
-  if (
-    VentasPayload.contractFilepath === "" ||
-    !VentasPayload.contractFilepath
-  ) {
-    observacionesList.push("Falta: Archivo de Contrato.");
-  }
-
-  if (VentasPayload.isComplete) {
-    VentasPayload.observaciones = "Archivo Completo.";
-  } else {
-    VentasPayload.observaciones = observacionesList.join("\n");
-  }
+    parseFloat(VentasPayload.intereses || 0) +
+    parseFloat(VentasPayload?.gastos || 0);
   
   const newVentas = new Ventas(VentasPayload);
 
   const savedVentas = await newVentas.save();
 
-  console.log("VentasPayload",VentasPayload)
+  // console.log("VentasPayload",VentasPayload)
   // update inventory status
   let findInventory = {
     projectId: VentasPayload.projectId,
@@ -168,8 +138,36 @@ export const getVentas = tryCatch(async (req, res) => {
       { path: 'statusId', model: 'status' },
     ])
     .sort({ _id: -1 });
+  
+    let ventasDatas = Ventasdata.map((c)=>{
+      const observacionesList = [];
+      
+      if (!c.precioVenta || c.precioVenta === "") {
+        observacionesList.push("Falta: Precio de Venta.");
+      }
 
-  res.status(200).json({ success: true, result: Ventasdata });
+      if (!c.identificationFilepath || c.identificationFilepath === "") {
+        observacionesList.push("Falta: Archivo de Identificación.");
+      }
+
+      if (!c.contractFilepath || c.contractFilepath === "") {
+        observacionesList.push("Falta: Archivo de Contrato.");
+      }
+
+      if (c.isComplete) {
+        c.observaciones = "Archivo Completo.";
+      } else {
+        c.observaciones = observacionesList.join("\n");
+      }
+      // console.log("c",c.name,c.email,c.phoneNumber,c.description, c.observaciones)
+
+      return c;
+
+    })
+
+
+
+  res.status(200).json({ success: true, result: ventasDatas });
 });
 
 //  delete Client
