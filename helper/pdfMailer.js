@@ -62,8 +62,8 @@ function makeHtmlEmailWithPdf({
 
 export async function pdfMail(data) {
   const to = data.to
-    ? `${process.env.FIRST_PERSON_EMAIL}, ${data.to}`
-    : process.env.FIRST_PERSON_EMAIL;
+    ? `${process.env.CLIENT_EMAIL_SENDER}, ${data.to}`
+    : process.env.CLIENT_EMAIL_SENDER;
 
   const raw = makeHtmlEmailWithPdf({
     from: '"VerdeAzul AI System" <asistente@appverdeazul.com>',

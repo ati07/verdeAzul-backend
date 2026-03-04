@@ -52,6 +52,7 @@ function makeEmail({ to, from, subject, html, text }) {
 }
 
 export async function mail(data) {
+  // console.log("Emaildata",data)
   const html = data.html;
   const raw = makeEmail({
     from: '"VerdeAzul AI System" <asistente@appverdeazul.com>',

@@ -77,7 +77,8 @@ export const createVentas = tryCatch(async (req, res) => {
     { path: "projectId", model: "projects" },
   ]);
 
-  populatedVentas.to = process.env.FIRST_PERSON_EMAIL;
+  // populatedVentas.to = process.env.FIRST_PERSON_EMAIL;
+  populatedVentas.to = process.env.WHEN_VENTA_CREATED
   populatedVentas.subject = `Nueva Venta Registrada: ${populatedVentas.unitName} - ${populatedVentas.clientId.name}`;
   populatedVentas.html = createVentasEmail(populatedVentas);
 

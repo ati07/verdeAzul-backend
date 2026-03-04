@@ -41,9 +41,11 @@ import accountRouter from './routes/workProgress/account.js';
 import CollectionBalanceRouter from './routes/collectionBalance.js';
 import sendMailRouter from './routes/sendMail.js';
 import VentasRouter from './routes/ventas.js';
+import CuentaRouter from "./routes/cuenta.js"
 // import './cron/collectionEmailReminder.js';
 import './cron/ceoReminder.js';
 import path from "path";
+import TitleCuentaRouter from './routes/titleCuenta.js';
 
 dotenv.config();
 
@@ -66,7 +68,7 @@ process.on("unhandledRejection", (reason, p) => {
 
 const app = express();
 
-app.use("/files", express.static("files"));
+
 
 
 // app.get("/files/:filename", (req, res) => {
@@ -122,6 +124,7 @@ app.use(cors({
   credentials: true
 }));
 
+app.use("/files", express.static("files"));
 app.use(morgan('dev'));
 
 app.use(express.json({ limit: '10mb' }));
@@ -159,6 +162,8 @@ app.use("/work-progress",workProgressRouter)
 app.use("/work-progress/category",categoryWorkProgressRouter)
 app.use("/work-progress/project",projectWorkProgressRouter)
 app.use("/work-progress/account",accountRouter)
+app.use("/cuenta",CuentaRouter)
+app.use("/title-cuenta",TitleCuentaRouter)
 // app.use("/api/agent", agentRoutes);
 app.use("/send-mail", sendMailRouter);
 // app.post("/ask", async (req, res) => {

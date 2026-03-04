@@ -252,10 +252,34 @@ export function createCobroRecibidoEmail(
                 <table width="100%" cellpadding="0" cellspacing="0">
                   <tr>
                     <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0;">
+                      <span style="color: #64748b; font-size: 14px; font-weight: 500;">Cliente:</span>
+                    </td>
+                    <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0; text-align: right;">
+                      <span style="color: #1e293b; font-size: 14px; font-weight: 600;">${cobroData.client?.name}</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0;">
+                      <span style="color: #64748b; font-size: 14px; font-weight: 500;">Proyecto:</span>
+                    </td>
+                    <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0; text-align: right;">
+                      <span style="color: #1e293b; font-size: 14px; font-weight: 600;">${cobroData.project?.name}</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0;">
+                      <span style="color: #64748b; font-size: 14px; font-weight: 500;">Unidad:</span>
+                    </td>
+                    <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0; text-align: right;">
+                      <span style="color: #1e293b; font-size: 14px; font-weight: 600;">${cobroData?.unitName}</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0;">
                       <span style="color: #64748b; font-size: 14px; font-weight: 500;">Número de Cobro:</span>
                     </td>
                     <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0; text-align: right;">
-                      <span style="color: #0ea5e9; font-size: 16px; font-weight: 800;">#${cobroData.cobroNumber}</span>
+                      <span style="color: #0ea5e9; font-size: 16px; font-weight: 800;">${cobroData?.cobroNumber}</span>
                     </td>
                   </tr>
                   <tr>
@@ -264,7 +288,7 @@ export function createCobroRecibidoEmail(
                     </td>
                     <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0; text-align: right;">
                       <span style="display: inline-block; background: #e0f2fe; color: #0c4a6e; padding: 6px 14px; border-radius: 15px; font-size: 13px; font-weight: 700;">
-                        ${cobroData.typeOfPayment}
+                        ${cobroData?.typeOfPayment}
                       </span>
                     </td>
                   </tr>
@@ -273,7 +297,7 @@ export function createCobroRecibidoEmail(
                       <span style="color: #64748b; font-size: 14px; font-weight: 500;">Fecha de Entrada:</span>
                     </td>
                     <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0; text-align: right;">
-                      <span style="color: #1e293b; font-size: 14px; font-weight: 600;">${formatDateTime(cobroData.fechaEntrada)}</span>
+                      <span style="color: #1e293b; font-size: 14px; font-weight: 600;">${formatDateTime(cobroData?.fechaEntrada)}</span>
                     </td>
                   </tr>
                   <tr>
@@ -281,7 +305,7 @@ export function createCobroRecibidoEmail(
                       <span style="color: #64748b; font-size: 14px; font-weight: 500;">Fecha de Reporte:</span>
                     </td>
                     <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0; text-align: right;">
-                      <span style="color: #1e293b; font-size: 14px; font-weight: 600;">${formatDate(cobroData.reportDate)}</span>
+                      <span style="color: #1e293b; font-size: 14px; font-weight: 600;">${formatDate(cobroData?.reportDate)}</span>
                     </td>
                   </tr>
                   <tr>
@@ -289,7 +313,7 @@ export function createCobroRecibidoEmail(
                       <span style="color: #64748b; font-size: 14px; font-weight: 500;">Fecha de Reporte de Cobro:</span>
                     </td>
                     <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0; text-align: right;">
-                      <span style="color: #1e293b; font-size: 14px; font-weight: 600;">${formatDate(cobroData.collectionReportDate)}</span>
+                      <span style="color: #1e293b; font-size: 14px; font-weight: 600;">${formatDate(cobroData?.collectionReportDate)}</span>
                     </td>
                   </tr>
                   ${

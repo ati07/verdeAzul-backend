@@ -69,9 +69,9 @@ export function createModernCollectionEmail(data) {
             <td style="padding: 45px 40px;">
               
               <!-- Summary Cards -->
-              <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom: 35px;">
+              <table align="center" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom: 35px; max-width: 600px;">
                 <tr>
-                  <td width="48%" style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border-radius: 12px; padding: 25px; vertical-align: top;">
+                  <td style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border-radius: 12px; padding: 25px; vertical-align: top; text-align: center;">
                     <p style="margin: 0 0 8px 0; color: #0369a1; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">
                       Total de Cobro
                     </p>
@@ -79,8 +79,6 @@ export function createModernCollectionEmail(data) {
                       ${formatCurrency(data.totalCollection)}
                     </p>
                   </td>
-                  <td width="4%"></td>
-                  
                 </tr>
               </table>
 
@@ -93,10 +91,26 @@ export function createModernCollectionEmail(data) {
                 <table width="100%" cellpadding="0" cellspacing="0">
                   <tr>
                     <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0;">
+                      <span style="color: #64748b; font-size: 14px; font-weight: 500;">Cliente:</span>
+                    </td>
+                    <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0; text-align: right;">
+                      <span style="color: #1e293b; font-size: 14px; font-weight: 600;">${data.client?.name}</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0;">
+                      <span style="color: #64748b; font-size: 14px; font-weight: 500;">Proyecto:</span>
+                    </td>
+                    <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0; text-align: right;">
+                      <span style="color: #1e293b; font-size: 14px; font-weight: 600;">${data.project?.name}</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0;">
                       <span style="color: #64748b; font-size: 14px; font-weight: 500;">Unidad:</span>
                     </td>
                     <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0; text-align: right;">
-                      <span style="color: #1e293b; font-size: 14px; font-weight: 600;">${data.unitName}</span>
+                      <span style="color: #1e293b; font-size: 14px; font-weight: 600;">${data?.unitName}</span>
                     </td>
                   </tr>
                   <tr>
@@ -104,7 +118,7 @@ export function createModernCollectionEmail(data) {
                       <span style="color: #64748b; font-size: 14px; font-weight: 500;">Tipo de Pago:</span>
                     </td>
                     <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0; text-align: right;">
-                      <span style="color: #1e293b; font-size: 14px; font-weight: 600;">${data.typeOfPayment}</span>
+                      <span style="color: #1e293b; font-size: 14px; font-weight: 600;">${data?.typeOfPayment}</span>
                     </td>
                   </tr>
                   <tr>
@@ -112,7 +126,7 @@ export function createModernCollectionEmail(data) {
                       <span style="color: #64748b; font-size: 14px; font-weight: 500;">Fecha de Pago:</span>
                     </td>
                     <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0; text-align: right;">
-                      <span style="color: #1e293b; font-size: 14px; font-weight: 600;">${formatDate(data.paymentDate)}</span>
+                      <span style="color: #1e293b; font-size: 14px; font-weight: 600;">${formatDate(data?.paymentDate)}</span>
                     </td>
                   </tr>
                   
@@ -121,7 +135,7 @@ export function createModernCollectionEmail(data) {
                       <span style="color: #64748b; font-size: 14px; font-weight: 500;">Fecha de Reporte:</span>
                     </td>
                     <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0; text-align: right;">
-                      <span style="color: #1e293b; font-size: 14px; font-weight: 600;">${formatDate(data.reportDate)}</span>
+                      <span style="color: #1e293b; font-size: 14px; font-weight: 600;">${formatDate(data?.reportDate)}</span>
                     </td>
                   </tr>
                 </table>

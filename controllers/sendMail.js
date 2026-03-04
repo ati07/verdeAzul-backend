@@ -1,16 +1,27 @@
 import { mail } from '../helper/mail.js';
 import { pdfMail } from '../helper/pdfMailer.js';
+import { createAnnaEmailTemplate } from '../helper/templates/annaEmailTemplate.js';
 import CollectionReport from '../models/collectionReport.js';
 import tryCatch from './utils/tryCatch.js';
 
 
+let template = {
+  "createAnnaEmailTemplate":createAnnaEmailTemplate
+}
 
 // Send email
 export const sendMail= tryCatch(async (req, res) => {
 
+// console.log("req.body",req.body)
+let data = req.body
+const payload = {
+  to: process.env.ANNA_EMAIL,
+  subject: data.subject,
+  html: template[data.html]({subject: data.subject,...data.body})
+ }
 
- await mail(req.body)
-
+ await mail(payload)
+ 
 
  res.status(200).json({ success: true, message: "Email sent successfully" });
 });
@@ -33,7 +44,7 @@ export const sendMailWithAttachment = tryCatch(async (req, res) => {
     }
 
   }
-  console.log("req.params",req.params,  "findCollectionReport",findCollectionReport)
+  // console.log("req.params",req.params,  "findCollectionReport",findCollectionReport)
  const updatedCollectionReport = await CollectionReport.updateOne(findCollectionReport,updateData)
 
   res.status(200).json({ success: true, message: "Email sent successfully" });

@@ -9,6 +9,7 @@ const projectSchema = new mongoose.Schema({
     dv: { type : String },
     managerName: { type : String },
     managerEmail: { type : String },
+    logoFilePath: { type : String },
     isDelete:{ type: Boolean, default: false },
     isActive:{ type: Boolean, default: true }, 
 },{timestamps: true});

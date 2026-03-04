@@ -146,12 +146,21 @@ let logoUrl = process.env.BACKEND_URL + '/files/images/VerdeAzulProperties.png';
                 </h2>
                 
                 <table width="100%" cellpadding="0" cellspacing="0">
+                 
+                  <tr>
+                    <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0;">
+                      <span style="color: #64748b; font-size: 14px; font-weight: 500;">Proyecto:</span>
+                    </td>
+                    <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0; text-align: right;">
+                      <span style="color: #1e293b; font-size: 15px; font-weight: 700;">${ventasData.projectId?.name}</span>
+                    </td>
+                  </tr>
                   <tr>
                     <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0;">
                       <span style="color: #64748b; font-size: 14px; font-weight: 500;">Unidad:</span>
                     </td>
                     <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0; text-align: right;">
-                      <span style="color: #1e293b; font-size: 15px; font-weight: 700;">${ventasData.unitName}</span>
+                      <span style="color: #1e293b; font-size: 15px; font-weight: 700;">${ventasData?.unitName}</span>
                     </td>
                   </tr>
                   <tr>
@@ -159,7 +168,7 @@ let logoUrl = process.env.BACKEND_URL + '/files/images/VerdeAzulProperties.png';
                       <span style="color: #64748b; font-size: 14px; font-weight: 500;">Fecha de Venta:</span>
                     </td>
                     <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0; text-align: right;">
-                      <span style="color: #1e293b; font-size: 14px; font-weight: 600;">${formatDateShort(ventasData.fechaDeVenta)}</span>
+                      <span style="color: #1e293b; font-size: 14px; font-weight: 600;">${formatDateShort(ventasData?.fechaDeVenta)}</span>
                     </td>
                   </tr>
                   <tr>
@@ -167,20 +176,9 @@ let logoUrl = process.env.BACKEND_URL + '/files/images/VerdeAzulProperties.png';
                       <span style="color: #64748b; font-size: 14px; font-weight: 500;">Precio Total:</span>
                     </td>
                     <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0; text-align: right;">
-                      <span style="color: #10b981; font-size: 18px; font-weight: 700;">${formatCurrency(ventasData.precioTotalVenta)}</span>
+                      <span style="color: #10b981; font-size: 18px; font-weight: 700;">${formatCurrency(ventasData?.precioTotalVenta)}</span>
                     </td>
                   </tr>
-                  ${ventasData.projectId.name ? `
-                  <tr>
-                    <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0;">
-                      <span style="color: #64748b; font-size: 14px; font-weight: 500;">Proyecto:</span>
-                    </td>
-                    <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0; text-align: right;">
-                      <span style="color: #1e293b; font-size: 14px; font-weight: 600;">${formatString(ventasData.projectId.name)}</span>
-                    </td>
-                  </tr>
-                  ` : ''}
-                  
                   <tr>
                     <td style="padding: 12px 0;">
                       <span style="color: #64748b; font-size: 14px; font-weight: 500;">Fecha de Registro:</span>

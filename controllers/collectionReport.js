@@ -4,6 +4,7 @@ import { createCobroRecibidoEmail, formatCurrency } from '../helper/templates/re
 import { ventasMail } from '../helper/ventasMail.js';
 import CollectionReport from '../models/collectionReport.js';
 import Project from '../models/project.js';
+import Client from '../models/client.js';
 import computeIsComplete from './utils/checkComplete.js';
 import tryCatch from './utils/tryCatch.js';
 
@@ -61,24 +62,26 @@ export const createCollectionReport= tryCatch(async (req, res) => {
 
   await newCollectionReport.save()
 
+    // Send email to project manager (if project has managerEmail)
+  const project = await Project.findById(CollectionReportPayload.projectId).lean();
+  const client = await Client.findById(CollectionReportPayload.clientId).lean();
+
   // CollectionReportPayload.subject = `Nuevo Cobro ${CollectionReportPayload.cobroNumber} por $${CollectionReportPayload.totalCollection}`;
   // CollectionReportPayload.to= process.env.ACCOUNTING_EMAIL,
   CollectionReportPayload.subject= `Nuevo Cobro Creado: ${CollectionReportPayload.cobroNumber} - ${CollectionReportPayload.unitName}`,
   CollectionReportPayload.text= `Nuevo cobro creado: ${CollectionReportPayload.cobroNumber} Unidad: ${CollectionReportPayload.unitName} Monto: ${CollectionReportPayload.totalCollection}`,
+  CollectionReportPayload.client = client
+  CollectionReportPayload.project = project,
   CollectionReportPayload.html = createModernCollectionEmail(CollectionReportPayload)
   
-  // await mail(CollectionReportPayload);
-
-  // Send email to project manager (if project has managerEmail)
-  const project = await Project.findById(CollectionReportPayload.projectId).lean();
-  if (project?.managerEmail) {
-    const pmPayload = {
+  const pmPayload = {
       ...CollectionReportPayload,
-      to: project.managerEmail ? project.managerEmail +","+ process.env.ACCOUNTING_EMAIL : process.env.ACCOUNTING_EMAIL,
+      // to: project.managerEmail ? project.managerEmail +","+ process.env.ACCOUNTING_EMAIL : process.env.ACCOUNTING_EMAIL,
+      to: project.managerEmail ? project.managerEmail +","+ process.env.WHEN_COBRO_CREATED : process.env.WHEN_COBRO_CREATED,
       subject: `Nuevo Cobro Creado: ${CollectionReportPayload.cobroNumber} - ${CollectionReportPayload.unitName}`
-    };
-    await mail(pmPayload);
-  }
+  };
+  await mail(pmPayload);
+
   res.status(200).json({ success: true, message: 'Collection Report added successfully' });
 
 })
@@ -140,6 +143,8 @@ export const getCollectionReport= tryCatch(async (req, res) => {
   const CollectionReports = await CollectionReport.find(findData).populate([
     // { path: 'addedBy', model: 'users' },
     { path: 'projectId', model: 'projects'},
+    { path: 'cuentaId', model: 'cuenta'},
+    { path: 'titleCuentaId', model: 'titleCuenta'},
     { path: 'bankId', model: 'banks' },
     { path:'clientId',model:'clients'},
     { path: 'userId', model: 'users' },
@@ -159,7 +164,13 @@ export const getCollectionReport= tryCatch(async (req, res) => {
     .lean();
 
   // res.status(200).json({ success: true, result: CollectionReports});
-    res.status(200).json({ 
+
+  // let findTotalData = {
+  //   isDelete: false
+  // }
+  // const totalCollection = await CollectionReport(findTotalData)
+
+  res.status(200).json({ 
       success: true, 
       result: CollectionReports,
       totalCount, // Total number of documents
@@ -213,15 +224,23 @@ export const updateCollectionReport= tryCatch(async (req, res) => {
   const updatedCollectionReport = await CollectionReport.updateOne(findCollectionReport,updateData)
   
   if(merged.estadoDelCobro ==="Recibido" && !merged.isEmailedFromEntradas){
-
+        // Send email to project manager (if project has managerEmail)
+    const project = await Project.findById(merged.projectId).lean();
+    const client = await Client.findById(merged.clientId).lean();
     // merged.subject = `Nuevo Cobro ${merged.cobroNumber} por $${merged.totalCollection}`;
     // merged.to= process.env.ACCOUNTING_EMAIL,
-    merged.to= process.env.FIRST_PERSON_EMAIL
+    // merged.to= process.env.FIRST_PERSON_EMAIL
+    merged.to= process.env.ENTRADAS_UPDATED
     // merged.subject= `Nuevo Cobro Creado: ${merged.cobroNumber} - ${merged.unitName}`,
     merged.subject = `Cobro Recibido #${merged.cobroNumber} - ${merged.unitName}`;
     // merged.text= `Nuevo cobro creado: ${merged.cobroNumber} Unidad: ${merged.unitName} Monto: ${merged.totalCollection}`,
-    merged.html = createCobroRecibidoEmail(merged)
+    
+    merged.client = client
+    merged.project = project
   
+    // console.log("merged",merged)
+    merged.html = createCobroRecibidoEmail(merged)
+   
     await mail(merged);
 
     let updateData = {
