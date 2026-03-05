@@ -141,7 +141,7 @@ export const getCollectionReport= tryCatch(async (req, res) => {
   const totalCount = await CollectionReport.countDocuments(findData);
 
   const CollectionReports = await CollectionReport.find(findData).populate([
-    // { path: 'addedBy', model: 'users' },
+    { path: 'recibidoBy', model: 'users' },
     { path: 'projectId', model: 'projects'},
     { path: 'cuentaId', model: 'cuenta'},
     { path: 'titleCuentaId', model: 'titleCuenta'},
@@ -243,8 +243,13 @@ export const updateCollectionReport= tryCatch(async (req, res) => {
    
     await mail(merged);
 
+    // CollectionReportPayload.addedBy = req.auth.user._id
+
     let updateData = {
-      $set: { isEmailedFromEntradas: true }
+      $set: { 
+        isEmailedFromEntradas: true,
+        recibidoBy: req.auth.user._id
+      }
     }
 
     const updatedCollectionReport = await CollectionReport.updateOne(findCollectionReport,updateData)

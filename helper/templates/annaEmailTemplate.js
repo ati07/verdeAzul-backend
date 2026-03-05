@@ -131,7 +131,26 @@ export function createAnnaEmailTemplate(
                  </h2>
                  
                  <table width="100%" cellpadding="0" cellspacing="0">
-                   
+                   <tr>
+                     <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0;">
+                       <span style="color: #64748b; font-size: 14px; font-weight: 500;">Fetcha Estatus:</span>
+                     </td>
+                     <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0; text-align: right;">
+                       <span style="display: inline-block; background: #e0f2fe; color: #0c4a6e; padding: 6px 14px; border-radius: 15px; font-size: 13px; font-weight: 700;">
+                        ${data?.statusDate ?? formatDate(new Date().toLocaleDateString('es-PA'))}
+                       </span>
+                     </td>
+                   </tr>
+                   <tr>
+                     <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0;">
+                       <span style="color: #64748b; font-size: 14px; font-weight: 500;">Estatus:</span>
+                     </td>
+                     <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0; text-align: right;">
+                       <span style="display: inline-block; background: #e0f2fe; color: #0c4a6e; padding: 6px 14px; border-radius: 15px; font-size: 13px; font-weight: 700;">
+                        ${data?.statusTime ?? formatDate(new Date().toLocaleTimeString('es-PA'))}
+                       </span>
+                     </td>
+                   </tr>
                    <tr>
                      <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0;">
                        <span style="color: #64748b; font-size: 14px; font-weight: 500;">Estatus:</span>

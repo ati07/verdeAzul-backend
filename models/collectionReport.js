@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 
 const CollectionReportSchema = new mongoose.Schema({
     addedBy: { type: mongoose.Types.ObjectId },
+    recibidoBy: { type: mongoose.Types.ObjectId },
     cuentaId: { type: mongoose.Types.ObjectId },
     titleCuentaId: { type: mongoose.Types.ObjectId },
     projectId: { type: mongoose.Types.ObjectId },
