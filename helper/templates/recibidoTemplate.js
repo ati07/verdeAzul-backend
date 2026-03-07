@@ -252,6 +252,24 @@ export function createCobroRecibidoEmail(
                 <table width="100%" cellpadding="0" cellspacing="0">
                   <tr>
                     <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0;">
+                      <span style="color: #64748b; font-size: 14px; font-weight: 500;">Abono en Cuenta Nr.:</span>
+                    </td>
+                    <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0; text-align: right;">
+                      <span style="color: #1e293b; font-size: 14px; font-weight: 600;">${cobroData.cuentaId?.name}</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0;">
+                      <span style="color: #64748b; font-size: 14px; font-weight: 500;">Titular de la Cuenta:</span>
+                    </td>
+                    <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0; text-align: right;">
+                      <span style="color: #1e293b; font-size: 14px; font-weight: 600;">${cobroData.titleCuentaId?.name}</span>
+                    </td>
+                  </tr>                
+
+
+                  <tr>
+                    <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0;">
                       <span style="color: #64748b; font-size: 14px; font-weight: 500;">Cliente:</span>
                     </td>
                     <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0; text-align: right;">

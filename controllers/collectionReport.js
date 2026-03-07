@@ -241,6 +241,7 @@ export const updateCollectionReport= tryCatch(async (req, res) => {
     // console.log("merged",merged)
     merged.html = createCobroRecibidoEmail(merged)
    
+    // console.log("merged",merged)
     await mail(merged);
 
     // CollectionReportPayload.addedBy = req.auth.user._id

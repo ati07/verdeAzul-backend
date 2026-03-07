@@ -1,8 +1,9 @@
 import { mail } from '../helper/mail.js';
-import { pdfMail } from '../helper/pdfMailer.js';
+import { sendMailWithAttachments } from '../helper/fileMailer.js';
 import { createAnnaEmailTemplate } from '../helper/templates/annaEmailTemplate.js';
 import CollectionReport from '../models/collectionReport.js';
 import tryCatch from './utils/tryCatch.js';
+import { pdfMail } from '../helper/pdfMailer.js';
 
 
 let template = {
@@ -26,7 +27,7 @@ const payload = {
  res.status(200).json({ success: true, message: "Email sent successfully" });
 });
 
-// Send email with attachment
+// Send email with attachment and collectionReportId
 export const sendMailWithAttachment = tryCatch(async (req, res) => {
 
   let findCollectionReport={
@@ -46,6 +47,14 @@ export const sendMailWithAttachment = tryCatch(async (req, res) => {
   }
   // console.log("req.params",req.params,  "findCollectionReport",findCollectionReport)
  const updatedCollectionReport = await CollectionReport.updateOne(findCollectionReport,updateData)
+
+  res.status(200).json({ success: true, message: "Email sent successfully" });
+})
+
+// Send email with attachment
+export const sendMailWithAttachmentWithoutId = tryCatch(async (req, res) => {
+
+  await sendMailWithAttachments(req.body) 
 
   res.status(200).json({ success: true, message: "Email sent successfully" });
 })
